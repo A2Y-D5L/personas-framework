@@ -1,6 +1,6 @@
 # Personas Framework
 
-A persona-based agent coordination framework designed to reduce cognitive overload by specializing agent roles into focused, well-defined personas. The framework is project-agnostic and can be adapted to any codebase or domain.
+An extensible, persona-based agent coordination framework designed to reduce cognitive overload by specializing agent roles into focused, well-defined personas. The framework is project-agnostic and can be adapted to any codebase or domain.
 
 ## Quick Start
 
