@@ -32,6 +32,7 @@ An extensible, persona-based agent coordination framework designed to reduce cog
 The framework uses a three-tier architecture that separates universal definitions, project-specific adaptations, and active work management:
 
 #### 🏗️ Framework Tier: Universal Definitions
+
 **Location:** `.personas/framework/personas/`
 
 - **Purpose:** Project-agnostic persona definitions and methodologies
@@ -39,6 +40,7 @@ The framework uses a three-tier architecture that separates universal definition
 - **Modification:** Do not modify - these are framework definitions
 
 #### 🎯 Project Tier: Specific Adaptations
+
 **Location:** `.personas/project/contexts/` and `.personas/project/`
 
 - **Purpose:** Project-specific customizations and adaptations
@@ -46,6 +48,7 @@ The framework uses a three-tier architecture that separates universal definition
 - **Modification:** Encouraged - adapt to your project requirements
 
 #### 📋 Operational Tier: Active Work Management
+
 **Location:** `.personas/project/todos/`
 
 - **Purpose:** Dynamic task management and workflow coordination

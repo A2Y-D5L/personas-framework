@@ -5,6 +5,7 @@
 ## [Enhanced] - 2025-08-27
 
 ### Added
+
 - Enhanced setup script with interactive configuration
 - Framework structure validator
 - Task format validator
@@ -15,17 +16,20 @@
 - Persona alignment checking
 
 ### Improved
+
 - Setup process now includes project customization
 - Better error reporting and validation
 - Automated testing and validation
 - Documentation generation and synchronization
 
 ### Fixed
+
 - Directory creation issues in setup
 - Missing file validation
 - Task format inconsistencies
 
 ### Technical Details
+
 - Shell script optimization and linting
 - Modular validation architecture
 - Extensible testing framework

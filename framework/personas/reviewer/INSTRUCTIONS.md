@@ -278,7 +278,7 @@ The Personas Framework uses a three-tier directory structure with distinct purpo
    - `.personas/project/todos/reviewer/completed/` - Historical review work and quality findings
    - Pattern analysis and lessons learned from previous reviews
 
-2. **Project Context and Organization**
+3. **Project Context and Organization**
    - Repository structure and module organization
    - Build and deployment pipeline capabilities
    - Testing infrastructure and automation

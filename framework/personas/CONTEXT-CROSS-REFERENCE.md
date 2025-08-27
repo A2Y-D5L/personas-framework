@@ -139,7 +139,7 @@ Documents are tagged with persona-specific priority levels:
 
 ### Engineer Context Filter
 
-```
+```text
 Priority 1: /todo/current/ + go-stream-tech-spec-v0.3.md
 Priority 2: /analysis/white-glove-review.md + test patterns
 Priority 3: Project structure + implementation history
@@ -147,7 +147,7 @@ Priority 3: Project structure + implementation history
 
 ### Planner Context Filter
 
-```
+```text
 Priority 1: go-stream-tech-spec-v0.3.md + /todo/reports/
 Priority 2: /analysis/ + historical planning decisions
 Priority 3: Project dependencies + team capacity data
@@ -155,7 +155,7 @@ Priority 3: Project dependencies + team capacity data
 
 ### Reviewer Context Filter
 
-```
+```text
 Priority 1: /analysis/ + go-stream-tech-spec-v0.3.md
 Priority 2: Current implementation + quality standards
 Priority 3: Historical issues + industry standards
@@ -163,7 +163,7 @@ Priority 3: Historical issues + industry standards
 
 ### Agent-Manager Context Filter
 
-```
+```text
 Priority 1: /todo/current/ + /housekeeping/ + /archive/
 Priority 2: Persona coordination + documentation currency
 Priority 3: Technical content for routing + persona capabilities

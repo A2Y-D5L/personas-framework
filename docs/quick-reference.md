@@ -14,6 +14,7 @@
 ## Quick Start Commands
 
 ### Setup New Project
+
 ```bash
 # Clone framework
 git clone [framework-repo] personas-framework
@@ -27,6 +28,7 @@ cd personas-framework
 ```
 
 ### Validation Commands
+
 ```bash
 # Validate framework structure
 ./tools/validate-framework.sh /path/to/project
@@ -41,17 +43,20 @@ cd personas-framework
 ### Daily Workflow
 
 1. **Check your persona's tasks:**
+
    ```bash
    ls .personas/project/todos/[your-persona]/current/
    ```
 
 2. **Create a new task:**
+
    ```bash
    # Use naming convention: YYYY-MM-DD-description.md
    touch .personas/project/todos/[persona]/current/$(date +%Y-%m-%d)-task-name.md
    ```
 
 3. **Move completed tasks:**
+
    ```bash
    mv .personas/project/todos/[persona]/current/task.md \
       .personas/project/todos/[persona]/completed/
@@ -86,18 +91,21 @@ cd personas-framework
 ## Handoff Protocol
 
 ### Engineer → Reviewer
+
 - Complete implementation with tests
 - Performance validation completed
 - Documentation updated
 - Ready for quality review
 
 ### Planner → Engineer
+
 - Detailed implementation plan
 - Technical specifications
 - Architecture decisions documented
 - Clear acceptance criteria
 
 ### Reviewer → [Original Persona]
+
 - Quality assessment completed
 - Issues documented with priority
 - Recommendations provided
@@ -106,6 +114,7 @@ cd personas-framework
 ## Emergency Procedures
 
 ### When Tasks are Blocked
+
 1. Document the blocker in task file
 2. Research alternative approaches
 3. Escalate to appropriate persona:
@@ -114,6 +123,7 @@ cd personas-framework
    - Coordination needs → Agent-Manager
 
 ### When Validation Fails
+
 ```bash
 # Fix common issues automatically
 ./tools/validate-framework.sh /path/to/project false true

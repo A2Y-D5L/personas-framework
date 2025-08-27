@@ -32,7 +32,7 @@ Before customizing this template, understand the three-tier framework structure:
 
 ## Directory Structure
 
-```
+```text
 .personas/project/              # This is the Project + Operational Tier
 ├── README.md                 # This file - customize for your project
 ├── TECH-SPEC.md             # Technical specifications (template)
@@ -88,16 +88,19 @@ Start creating tasks in the appropriate `todos/[persona]/current/` directories b
 ### Technology-Specific Adaptations
 
 **Programming Languages:**
+
 - Update STANDARDS.md with language-specific conventions
 - Add language-specific patterns to contexts/engineer/
 - Include language-specific security considerations in contexts/reviewer/
 
 **Frameworks and Libraries:**
+
 - Document framework integration patterns in DEPENDENCIES.md
 - Add framework-specific testing patterns to contexts/engineer/
 - Include framework-specific architecture patterns in contexts/planner/
 
 **Domain-Specific Requirements:**
+
 - Add domain-specific requirements to TECH-SPEC.md
 - Include domain-specific quality criteria in contexts/reviewer/
 - Document domain-specific coordination needs in contexts/agent-manager/
@@ -105,11 +108,13 @@ Start creating tasks in the appropriate `todos/[persona]/current/` directories b
 ### Team and Process Adaptations
 
 **Team Size and Structure:**
+
 - Adjust coordination protocols in contexts/agent-manager/
 - Modify handoff procedures based on team communication patterns
 - Scale TODO management approaches for team size
 
 **Development Process:**
+
 - Integrate with existing CI/CD in STANDARDS.md
 - Adapt quality gates to existing review processes
 - Align coordination protocols with existing project management tools

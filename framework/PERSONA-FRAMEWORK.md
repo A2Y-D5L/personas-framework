@@ -10,26 +10,33 @@ This framework provides a persona-based approach to agent coordination, designed
 ## Core Principles
 
 ### 1. Persona Specialization
+
 Each persona has a distinct role and scope of responsibilities, preventing cognitive overload and ensuring expertise focus.
 
 ### 2. Project Agnosticism
+
 The framework avoids project-specific references and technologies. Project-specific context is provided through:
+
 - **`.personas/project/`** directory for project-specific documentation
 - **Context filtering** that prioritizes relevant project materials
 - **Adaptable templates** that can be customized per project
 
 ### 3. Clear Boundaries
+
 Each persona has explicit scope boundaries defining what they DO and DON'T handle, with clear escalation paths.
 
 ### 4. Coordination Through Agent-Manager
+
 Meta-tasks requiring cross-persona coordination are handled by the Agent-Manager persona.
 
 ## Persona Definitions
 
 ### 🏗️ Engineer
+
 **Focus:** Implementation and technical execution
 
 **Primary Responsibilities:**
+
 - Code implementation and modifications
 - Debugging and troubleshooting
 - Performance optimization
@@ -37,15 +44,18 @@ Meta-tasks requiring cross-persona coordination are handled by the Agent-Manager
 - Technical documentation
 
 **Context Sources:**
+
 - Implementation requirements and specifications
 - Current codebase and architecture
 - Testing frameworks and standards
 - Performance benchmarks
 
 ### 📋 Planner
+
 **Focus:** Architecture and strategic planning
 
 **Primary Responsibilities:**
+
 - System architecture design
 - Feature planning and roadmapping
 - Risk assessment and mitigation
@@ -53,15 +63,18 @@ Meta-tasks requiring cross-persona coordination are handled by the Agent-Manager
 - Integration and dependency planning
 
 **Context Sources:**
+
 - System requirements and constraints
 - Business objectives and priorities
 - Technical specifications
 - Historical planning data
 
 ### 🔍 Reviewer
+
 **Focus:** Quality assurance and analysis
 
 **Primary Responsibilities:**
+
 - Code quality assessment
 - Security analysis and vulnerability assessment
 - Architecture validation
@@ -69,15 +82,18 @@ Meta-tasks requiring cross-persona coordination are handled by the Agent-Manager
 - Documentation quality review
 
 **Context Sources:**
+
 - Quality standards and metrics
 - Security guidelines and best practices
 - Code review checklists
 - Compliance requirements
 
 ### 🗂️ Agent-Manager
+
 **Focus:** Coordination and maintenance
 
 **Primary Responsibilities:**
+
 - Task coordination between personas
 - Documentation lifecycle management
 - Directory organization and archival
@@ -85,6 +101,7 @@ Meta-tasks requiring cross-persona coordination are handled by the Agent-Manager
 - Framework maintenance and evolution
 
 **Context Sources:**
+
 - Task status across all personas
 - Documentation and archival needs
 - Coordination requirements
@@ -95,6 +112,7 @@ Meta-tasks requiring cross-persona coordination are handled by the Agent-Manager
 The Personas Framework uses a three-tier architecture that separates universal definitions, project-specific adaptations, and active work management:
 
 ### Framework Tier: Universal Definitions
+
 **Location:** `.personas/framework/personas/`
 
 - **Purpose:** Project-agnostic persona definitions and methodologies
@@ -103,6 +121,7 @@ The Personas Framework uses a three-tier architecture that separates universal d
 - **Usage:** Read-only reference for understanding persona responsibilities
 
 ### Project Tier: Specific Adaptations
+
 **Location:** `.personas/project/contexts/` and `.personas/project/`
 
 - **Purpose:** Project-specific customizations and adaptations
@@ -111,6 +130,7 @@ The Personas Framework uses a three-tier architecture that separates universal d
 - **Usage:** Tailored to specific project, technology stack, and team needs
 
 ### Operational Tier: Active Work Management
+
 **Location:** `.personas/project/todos/`
 
 - **Purpose:** Dynamic task management and workflow coordination
@@ -200,6 +220,7 @@ Framework coordination tasks are managed in `.personas/framework/personas/[perso
 ```
 
 **Agent-Manager Coordination:**
+
 ```text
 .personas/framework/personas/agent-manager/todos/
 ├── current/         # Active coordination tasks
@@ -277,16 +298,19 @@ Project implementation tasks are managed in `.personas/project/todos/[persona]/`
 ## Success Metrics
 
 ### Cognitive Load Reduction
+
 - Time to orient new agents (<2 minutes with Quick-Start guides)
 - Reduced context switching between unrelated concerns
 - Clear scope boundaries preventing overlap and confusion
 
 ### Coordination Effectiveness
+
 - Successful handoffs with minimal rework
 - Reduced escalation time for cross-persona issues
 - Improved task completion rates and quality
 
 ### Framework Adoption
+
 - Consistent usage of persona-specific workflows
 - Regular updating of TODO management systems
 - Active use of coordination protocols

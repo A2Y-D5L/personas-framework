@@ -312,6 +312,7 @@ When implementation requires significant documentation updates:
 **Language and Framework Guidelines:**
 
 Refer to `../../../../project/STANDARDS.md` for project-specific:
+
 - Language-specific best practices and conventions
 - Framework integration patterns
 - Code style and formatting standards
@@ -321,6 +322,7 @@ Refer to `../../../../project/STANDARDS.md` for project-specific:
 **External Integration:**
 
 Refer to `../../../../project/DEPENDENCIES.md` and `../../../../project/TECH-SPEC.md` for:
+
 - External API integration requirements
 - Third-party library usage patterns
 - Integration testing approaches
@@ -348,8 +350,9 @@ Refer to `../../../../project/DEPENDENCIES.md` and `../../../../project/TECH-SPE
 
 **Implementation Examples:**
 
-```
+```markdown
 // Refer to ../../../../project/contexts/engineer/ for:
+//
 // - Language-specific error handling patterns
 // - Testing framework examples and templates
 // - Logging and observability integration

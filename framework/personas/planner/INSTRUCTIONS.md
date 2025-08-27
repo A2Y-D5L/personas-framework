@@ -147,19 +147,19 @@ The Personas Framework uses a three-tier directory structure with distinct purpo
 
 ### Planning Context Hierarchy
 
-**Priority 1: Framework Understanding**
+#### **Priority 1:** Framework Understanding
 
 - Universal planning methodologies and task breakdown frameworks
 - Standard architectural analysis patterns and risk assessment methods
 - Universal handoff protocols and coordination patterns
 
-**Priority 2: Project Context Application**
+#### **Priority 2:** Project Context Application
 
 - Project-specific architectural constraints and technology patterns
 - Domain-specific planning requirements and methodologies
 - Team-specific coordination and communication patterns
 
-**Priority 3: Active Task Execution**
+#### **Priority 3:** Active Task Execution
 
 - Current planning tasks and their specific requirements
 - Backlog planning initiatives and their prioritization
@@ -198,7 +198,7 @@ The Personas Framework uses a three-tier directory structure with distinct purpo
    - `.personas/project/todos/planner/completed/` - Historical planning work and architectural decisions
    - Pattern analysis and lessons learned from previous planning efforts
 
-2. **External Dependencies and Constraints**
+3. **External Dependencies and Constraints**
    - External API limitations and capabilities (see `../../../../project/DEPENDENCIES.md`)
    - Third-party library versions and compatibility
    - Deployment environment constraints
