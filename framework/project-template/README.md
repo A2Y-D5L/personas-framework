@@ -8,10 +8,32 @@
 
 This is a template structure for projects using the Personas Framework. Copy this entire directory to your project's `.personas/project/` directory and customize it for your specific project needs.
 
+## Framework Directory Understanding
+
+Before customizing this template, understand the three-tier framework structure:
+
+### 🏗️ Framework Tier (`.personas/framework/personas/`)
+
+- **Purpose:** Universal persona definitions and methodologies
+- **Content:** Project-agnostic instructions and workflows
+- **Your Role:** Read-only reference - do not modify
+
+### 🎯 Project Tier (`.personas/project/contexts/` and project files)
+
+- **Purpose:** Project-specific adaptations and customizations
+- **Content:** This template and your project-specific context
+- **Your Role:** Actively customize for your project needs
+
+### 📋 Operational Tier (`.personas/project/todos/`)
+
+- **Purpose:** Active task management and workflow coordination
+- **Content:** Current work, planned tasks, completed outcomes
+- **Your Role:** Continuously update as work progresses
+
 ## Directory Structure
 
 ```
-.personas/project/
+.personas/project/              # This is the Project + Operational Tier
 ├── README.md                 # This file - customize for your project
 ├── TECH-SPEC.md             # Technical specifications (template)
 ├── ARCHITECTURE.md          # System architecture (template)
@@ -19,12 +41,12 @@ This is a template structure for projects using the Personas Framework. Copy thi
 ├── DEPENDENCIES.md          # External dependencies (template)
 ├── PERFORMANCE.md           # Performance requirements (template)
 ├── SECURITY.md              # Security guidelines (template)
-├── contexts/                # Persona-specific project contexts
+├── contexts/                # Persona-specific project contexts (Project Tier)
 │   ├── engineer/            # Implementation-specific context
 │   ├── planner/             # Planning-specific context
 │   ├── reviewer/            # Review-specific context
 │   └── agent-manager/       # Coordination-specific context
-└── todos/                   # Project-specific task management
+└── todos/                   # Project-specific task management (Operational Tier)
     ├── engineer/            # Implementation tasks
     ├── planner/             # Planning tasks
     └── reviewer/            # Review tasks

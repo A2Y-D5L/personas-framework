@@ -90,6 +90,36 @@ Meta-tasks requiring cross-persona coordination are handled by the Agent-Manager
 - Coordination requirements
 - Framework usage patterns
 
+## Directory Structure and Purposes
+
+The Personas Framework uses a three-tier architecture that separates universal definitions, project-specific adaptations, and active work management:
+
+### Framework Tier: Universal Definitions
+**Location:** `.personas/framework/personas/`
+
+- **Purpose:** Project-agnostic persona definitions and methodologies
+- **Content:** Universal instructions, workflows, and best practices
+- **Maintenance:** Updated only when framework itself evolves
+- **Usage:** Read-only reference for understanding persona responsibilities
+
+### Project Tier: Specific Adaptations
+**Location:** `.personas/project/contexts/` and `.personas/project/`
+
+- **Purpose:** Project-specific customizations and adaptations
+- **Content:** Technology patterns, domain knowledge, project standards
+- **Maintenance:** Actively maintained and customized by project teams
+- **Usage:** Tailored to specific project, technology stack, and team needs
+
+### Operational Tier: Active Work Management
+**Location:** `.personas/project/todos/`
+
+- **Purpose:** Dynamic task management and workflow coordination
+- **Content:** Current tasks, planned work, completed outcomes
+- **Maintenance:** Continuously updated as work progresses
+- **Usage:** Real-time operational coordination and task execution
+
+This separation ensures that universal framework knowledge remains consistent while enabling extensive project-specific customization and efficient operational management.
+
 ## Project Integration
 
 ### .personas Directory Structure
@@ -98,7 +128,7 @@ The framework integrates with project-specific context through a standardized `.
 
 ```text
 .personas/
-├── framework/                   # Framework coordination
+├── framework/                   # Framework coordination (Universal Tier)
 │   ├── PERSONA-FRAMEWORK.md     # Core framework documentation
 │   ├── personas/                # Persona definitions and workflows
 │   │   ├── engineer/            # Implementation persona
@@ -106,7 +136,7 @@ The framework integrates with project-specific context through a standardized `.
 │   │   ├── reviewer/            # Quality assurance persona
 │   │   └── agent-manager/       # Coordination persona
 │   └── project-template/        # Template for new projects
-└── project/                     # Project-specific context
+└── project/                     # Project-specific context (Project + Operational Tiers)
     ├── README.md                # Project overview and quick start
     ├── TECH-SPEC.md            # Technical specifications
     ├── ARCHITECTURE.md         # System architecture documentation  
@@ -114,12 +144,12 @@ The framework integrates with project-specific context through a standardized `.
     ├── DEPENDENCIES.md         # External dependencies and integrations
     ├── PERFORMANCE.md          # Performance requirements and benchmarks
     ├── SECURITY.md             # Security requirements and guidelines
-    ├── contexts/               # Persona-specific project contexts
+    ├── contexts/               # Persona-specific project contexts (Project Tier)
     │   ├── engineer/           # Implementation-specific context
     │   ├── planner/            # Planning-specific context
     │   ├── reviewer/           # Review-specific context
     │   └── agent-manager/      # Coordination-specific context
-    └── todos/                  # Project-specific task management
+    └── todos/                  # Project-specific task management (Operational Tier)
         ├── engineer/           # Implementation tasks
         │   ├── current/        # Active implementation tasks
         │   ├── backlog/        # Future implementation needs

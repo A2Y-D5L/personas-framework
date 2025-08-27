@@ -99,42 +99,93 @@ The Agent-Manager persona is responsible for maintaining the organizational heal
 4. **Facilitate:** Coordinate handoffs between personas
 5. **Archive:** Preserve completed work and learnings
 
+## Framework Directory Structure
+
+The Personas Framework uses a three-tier directory structure with distinct purposes:
+
+### 🏗️ Framework Personas (`.personas/framework/personas/`)
+
+**Purpose:** Universal coordination and framework maintenance definitions
+
+**Agent-Manager-Specific Framework Content:**
+
+- `INSTRUCTIONS.md` - Universal Agent-Manager persona coordination patterns
+- `CONTEXT-GUIDE.md` - General coordination and maintenance methodologies
+- `QUICK-START.md` - Universal quick-start guide for coordination workflows
+
+### 🎯 Project Contexts (`.personas/project/contexts/agent-manager/`)
+
+**Purpose:** Project-specific coordination patterns and organizational customizations
+
+**Agent-Manager-Specific Project Context:**
+
+- Project-specific coordination and communication protocols
+- Team-specific workflow patterns and handoff procedures
+- Organization-specific documentation and maintenance standards
+- Project-specific tool integrations and automation patterns
+
+### 📋 Project Todos (`.personas/project/todos/agent-manager/`)
+
+**Purpose:** Active coordination and maintenance task management
+
+**Agent-Manager Task Management:**
+
+- `current/` - Active coordination tasks and framework maintenance
+- `backlog/` - Planned organizational improvements and process enhancements
+- `completed/` - Archive of completed coordination work and process changes
+
+### Coordination Scope Management
+
+**Framework-Level Coordination:**
+
+- Universal persona interaction patterns and handoff protocols
+- Standard documentation lifecycle and maintenance procedures
+- Core framework validation and consistency checking
+
+**Project-Level Coordination:**
+
+- Team-specific communication and coordination patterns
+- Project-specific documentation and organizational standards
+- Custom workflow adaptations and process improvements
+
+**Operational Coordination:**
+
+- Day-to-day task coordination and workflow management
+- Active issue resolution and process optimization
+- Real-time communication and status management
+
 ## Context Hierarchy
 
-### Priority 1: Essential Context (Review First)
+### Priority 1: Framework Understanding (Read-Only Reference)
 
-1. **Organization Status**
-   - `/todo/current/` - Active task validation
-   - `/housekeeping/` - Maintenance procedures
-   - `/archive/` - Historical content for preservation
+1. **Universal Agent-Manager Definition**
+   - `.personas/framework/personas/agent-manager/INSTRUCTIONS.md` - Core coordination responsibilities and methodologies
+   - Universal coordination patterns and handoff protocols
+   - Project-agnostic maintenance and organizational best practices
 
-2. **Coordination Requirements**
-   - Pending handoffs between personas
-   - Task routing and persona assignment needs
-   - Cross-persona documentation updates
+### Priority 2: Project Adaptation (Actively Customize)
 
-### Priority 2: Supporting Context (For Complex Tasks)
+1. **Project-Specific Context**
+   - `.personas/project/contexts/agent-manager/` - Project-specific coordination adaptations and customizations
+   - Team-specific coordination patterns and communication protocols
+   - Organization-specific maintenance standards and procedures
 
-1. **Documentation State**
-   - Recent changes in project files
-   - Currency of technical specifications
-   - Link integrity and navigation paths
+2. **Technical Specifications**
+   - `.personas/project/TECH-SPEC.md` - Project architecture and coordination requirements
+   - `.personas/project/STANDARDS.md` - Project standards and organizational conventions
+   - `.personas/project/DEPENDENCIES.md` - External dependencies and coordination constraints
 
-2. **Historical Patterns**
-   - Archived task completion patterns
-   - Previous coordination challenges
-   - Successful handoff examples
+### Priority 3: Active Work Execution (Continuously Update)
 
-### Priority 3: Background Context (Reference as Needed)
+1. **Current Coordination Tasks and Workflow**
+   - `.personas/project/todos/agent-manager/current/` - Active coordination tasks requiring immediate attention
+   - Specific coordination acceptance criteria and organizational requirements
+   - Dependencies and coordination requirements with other personas
 
-1. **Technical Content** (for routing decisions)
-   - `go-stream-tech-spec-v0.3.md`
-   - `/analysis/` directory contents
-   - Project structure changes
-
-2. **Persona Instructions** (for coordination)
-   - Engineer, Planner, Reviewer instruction files
-   - Handoff protocol documentation
+2. **Coordination History and Future Work**
+   - `.personas/project/todos/agent-manager/backlog/` - Planned future coordination initiatives
+   - `.personas/project/todos/agent-manager/completed/` - Historical coordination work and organizational changes
+   - Pattern analysis and lessons learned from previous coordination efforts
 
 ## Handoff Protocols
 

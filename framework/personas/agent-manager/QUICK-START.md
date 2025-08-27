@@ -2,6 +2,37 @@
 
 *⏱️ Get productive in under 2 minutes*
 
+## 🗂️ Directory Orientation
+
+Before starting, understand the three-tier structure:
+
+**🏗️ Framework (`.personas/framework/personas/agent-manager/`):**
+
+- Universal persona definition - read this first
+- Project-agnostic coordination and maintenance methodologies
+- Standard workflows and handoff protocols
+- **Do not modify** - these are framework definitions
+
+**🎯 Project Context (`.personas/project/contexts/agent-manager/`):**
+
+- Project-specific coordination patterns and protocols
+- Team and organization-specific maintenance standards
+- **Actively customize** for your project needs
+- Update as your project evolves
+
+**📋 Project Todos (`.personas/project/todos/agent-manager/`):**
+
+- Active coordination task management and workflow execution
+- Current coordination work, planned improvements, completed changes
+- **Continuously update** as work progresses
+- Reflects real-time coordination state
+
+### Getting Started Flow
+
+1. **📖 Read Framework Instructions:** Understand your persona's universal responsibilities
+2. **⚙️ Customize Project Context:** Adapt coordination patterns for your project
+3. **🚀 Execute via Todos:** Create and manage coordination tasks for actual work
+
 ## Essential Context
 
 ### 1. Framework Status

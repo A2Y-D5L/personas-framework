@@ -2,6 +2,37 @@
 
 *⏱️ Get productive in under 2 minutes*
 
+## 🗂️ Directory Orientation
+
+Before starting, understand the three-tier structure:
+
+**🏗️ Framework (`.personas/framework/personas/planner/`):**
+
+- Universal persona definition - read this first
+- Project-agnostic planning methodologies and frameworks
+- Standard workflows and handoff protocols
+- **Do not modify** - these are framework definitions
+
+**🎯 Project Context (`.personas/project/contexts/planner/`):**
+
+- Project-specific architectural patterns and constraints
+- Technology and domain-specific planning approaches
+- **Actively customize** for your project needs
+- Update as your project evolves
+
+**📋 Project Todos (`.personas/project/todos/planner/`):**
+
+- Active planning task management and workflow execution
+- Current planning work, planned initiatives, completed analyses
+- **Continuously update** as work progresses
+- Reflects real-time planning state
+
+### Getting Started Flow
+
+1. **📖 Read Framework Instructions:** Understand your persona's universal responsibilities
+2. **⚙️ Customize Project Context:** Adapt planning patterns for your project
+3. **🚀 Execute via Todos:** Create and manage planning tasks for actual work
+
 ## Essential Context
 
 ### 1. Current Planning Tasks

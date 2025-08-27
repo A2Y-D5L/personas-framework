@@ -2,6 +2,37 @@
 
 *⏱️ Get productive in under 2 minutes*
 
+## 🗂️ Directory Orientation
+
+Before starting, understand the three-tier structure:
+
+**🏗️ Framework (`.personas/framework/personas/reviewer/`):**
+
+- Universal persona definition - read this first
+- Project-agnostic quality assessment methodologies
+- Standard workflows and handoff protocols
+- **Do not modify** - these are framework definitions
+
+**🎯 Project Context (`.personas/project/contexts/reviewer/`):**
+
+- Project-specific quality standards and criteria
+- Technology and domain-specific review patterns
+- **Actively customize** for your project needs
+- Update as your project evolves
+
+**📋 Project Todos (`.personas/project/todos/reviewer/`):**
+
+- Active review task management and workflow execution
+- Current review work, planned assessments, completed reviews
+- **Continuously update** as work progresses
+- Reflects real-time review state
+
+### Getting Started Flow
+
+1. **📖 Read Framework Instructions:** Understand your persona's universal responsibilities
+2. **⚙️ Customize Project Context:** Adapt quality standards for your project
+3. **🚀 Execute via Todos:** Create and manage review tasks for actual work
+
 ## Essential Context
 
 ### 1. Quality Standards

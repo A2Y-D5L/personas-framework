@@ -4,6 +4,37 @@
 **Purpose:** Fast orientation for implementation work  
 **Time to Orient:** <2 minutes
 
+## 🗂️ Directory Orientation
+
+Before starting, understand the three-tier structure:
+
+**🏗️ Framework (`.personas/framework/personas/engineer/`):**
+
+- Universal persona definition - read this first
+- Project-agnostic best practices and methodologies
+- Standard workflows and handoff protocols
+- **Do not modify** - these are framework definitions
+
+**🎯 Project Context (`.personas/project/contexts/engineer/`):**
+
+- Project-specific customizations and adaptations
+- Technology and domain-specific patterns
+- **Actively customize** for your project needs
+- Update as your project evolves
+
+**📋 Project Todos (`.personas/project/todos/engineer/`):**
+
+- Active task management and workflow execution
+- Current work, planned initiatives, completed tasks
+- **Continuously update** as work progresses
+- Reflects real-time project state
+
+### Getting Started Flow
+
+1. **📖 Read Framework Instructions:** Understand your persona's universal responsibilities
+2. **⚙️ Customize Project Context:** Adapt patterns and practices for your project
+3. **🚀 Execute via Todos:** Create and manage tasks for actual work
+
 ## Essential Context (Read First)
 
 ### 1. Current Tasks

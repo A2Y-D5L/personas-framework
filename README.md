@@ -29,9 +29,34 @@ An extensible, persona-based agent coordination framework designed to reduce cog
 
 ### Framework Structure
 
+The framework uses a three-tier architecture that separates universal definitions, project-specific adaptations, and active work management:
+
+#### 🏗️ Framework Tier: Universal Definitions
+**Location:** `.personas/framework/personas/`
+
+- **Purpose:** Project-agnostic persona definitions and methodologies
+- **Usage:** Read-only reference for understanding persona responsibilities
+- **Modification:** Do not modify - these are framework definitions
+
+#### 🎯 Project Tier: Specific Adaptations
+**Location:** `.personas/project/contexts/` and `.personas/project/`
+
+- **Purpose:** Project-specific customizations and adaptations
+- **Usage:** Actively customize for your project needs
+- **Modification:** Encouraged - adapt to your project requirements
+
+#### 📋 Operational Tier: Active Work Management
+**Location:** `.personas/project/todos/`
+
+- **Purpose:** Dynamic task management and workflow coordination
+- **Usage:** Continuously update as work progresses
+- **Modification:** Constant - reflects current work state
+
+### Directory Structure
+
 ```text
 .personas/                       # Project personas directory
-├── framework/                   # Framework coordination
+├── framework/                   # Framework coordination (Universal Tier)
 │   ├── PERSONA-FRAMEWORK.md     # Core framework documentation
 │   ├── personas/                # Persona definitions and workflows
 │   │   ├── engineer/            # Implementation persona
@@ -39,13 +64,13 @@ An extensible, persona-based agent coordination framework designed to reduce cog
 │   │   ├── reviewer/            # Quality assurance persona
 │   │   └── agent-manager/       # Coordination persona
 │   └── project-template/        # Template for new projects
-└── project/                     # Project-specific context
+└── project/                     # Project-specific context (Project + Operational Tiers)
     ├── README.md                # Project overview
     ├── TECH-SPEC.md            # Technical specifications
     ├── STANDARDS.md            # Development standards
     ├── DEPENDENCIES.md         # External dependencies
-    ├── contexts/               # Persona-specific project context
-    └── todos/                  # Project task management
+    ├── contexts/               # Persona-specific project context (Project Tier)
+    └── todos/                  # Project task management (Operational Tier)
 ```
 
 ## Core Personas

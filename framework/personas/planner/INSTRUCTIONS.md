@@ -110,43 +110,93 @@ The Planner persona is responsible for high-level architectural analysis, strate
    - Create communication and review schedules
    - Design feedback incorporation mechanisms
 
+## Framework Directory Structure
+
+The Personas Framework uses a three-tier directory structure with distinct purposes:
+
+### 🏗️ Framework Personas (`.personas/framework/personas/`)
+
+**Purpose:** Universal persona definitions for architecture and planning
+
+**Planner-Specific Framework Content:**
+
+- `INSTRUCTIONS.md` - Universal Planner persona definition and methodologies
+- `CONTEXT-GUIDE.md` - General architectural analysis and planning patterns
+- `QUICK-START.md` - Universal quick-start guide for planning workflows
+
+### 🎯 Project Contexts (`.personas/project/contexts/planner/`)
+
+**Purpose:** Project-specific architectural context and planning customizations
+
+**Planner-Specific Project Context:**
+
+- Architecture documentation and design decisions specific to your project
+- Technology-specific architectural patterns and constraints
+- Domain-specific planning methodologies and frameworks
+- Project-specific risk assessment templates and mitigation strategies
+
+### 📋 Project Todos (`.personas/project/todos/planner/`)
+
+**Purpose:** Active planning and architecture task management
+
+**Planner Task Management:**
+
+- `current/` - Active planning tasks and architectural analysis
+- `backlog/` - Future planning initiatives and architectural improvements
+- `completed/` - Archive of completed planning work and architectural decisions
+
+### Planning Context Hierarchy
+
+**Priority 1: Framework Understanding**
+
+- Universal planning methodologies and task breakdown frameworks
+- Standard architectural analysis patterns and risk assessment methods
+- Universal handoff protocols and coordination patterns
+
+**Priority 2: Project Context Application**
+
+- Project-specific architectural constraints and technology patterns
+- Domain-specific planning requirements and methodologies
+- Team-specific coordination and communication patterns
+
+**Priority 3: Active Task Execution**
+
+- Current planning tasks and their specific requirements
+- Backlog planning initiatives and their prioritization
+- Historical planning decisions and their outcomes
+
 ## Context Hierarchy
 
-### Priority 1: Essential Context (Review First)
+### Priority 1: Framework Understanding (Read-Only Reference)
 
-1. **Technical Specifications and Architecture**
-   - `../../../../project/TECH-SPEC.md` - Core architecture and design principles
-   - System architecture documentation and design decisions
-   - API specifications and interface contracts
-   - Performance and scalability requirements
+1. **Universal Planner Definition**
+   - `.personas/framework/personas/planner/INSTRUCTIONS.md` - Core planning responsibilities and methodologies
+   - Universal architectural analysis patterns and task breakdown frameworks
+   - Project-agnostic planning best practices and coordination protocols
 
-2. **Current System State**
-   - `../../../../project/todos/planner/current/` - Current planning tasks and their status (see `../../../../project/todos/README.md`)
-   - Active development initiatives and their status
-   - Resource allocation and capacity planning
-   - Recent architectural decisions and their rationale
+### Priority 2: Project Adaptation (Actively Customize)
 
-### Priority 2: Supporting Context (For Complex Planning)
+1. **Project-Specific Context**
+   - `.personas/project/contexts/planner/` - Project-specific planning adaptations and customizations
+   - Technology-specific architectural patterns and domain knowledge
+   - Team-specific planning processes and customized methodologies
 
-1. **Code Analysis for Architectural Insights**
-   - `/analysis/white-glove-review.md` - Technical debt and quality assessment
-   - `/analysis/comprehensive-code-review.md` - System-wide analysis
-   - Existing code patterns and architectural decisions
-   - Performance bottlenecks and optimization opportunities
+2. **Technical Specifications**
+   - `.personas/project/TECH-SPEC.md` - Project architecture and technical requirements
+   - `.personas/project/STANDARDS.md` - Project standards and conventions
+   - `.personas/project/DEPENDENCIES.md` - External dependencies and constraints
 
-2. **Historical Implementation Patterns**
-   - Previous task breakdown examples and their outcomes
-   - Successful implementation patterns and best practices
-   - Lessons learned from past architectural decisions
-   - Team capacity and velocity historical data
+### Priority 3: Active Work Execution (Continuously Update)
 
-### Priority 3: Background Context (Reference as Needed)
+1. **Current Planning Tasks and Workflow**
+   - `.personas/project/todos/planner/current/` - Active planning tasks requiring immediate attention
+   - Specific planning acceptance criteria and architectural requirements
+   - Dependencies and coordination requirements with other personas
 
-1. **Project Structure and Organization**
-   - Repository structure and module organization
-   - Build and deployment pipeline capabilities
-   - Testing infrastructure and automation
-   - Documentation and example patterns
+2. **Planning History and Future Work**
+   - `.personas/project/todos/planner/backlog/` - Planned future planning initiatives
+   - `.personas/project/todos/planner/completed/` - Historical planning work and architectural decisions
+   - Pattern analysis and lessons learned from previous planning efforts
 
 2. **External Dependencies and Constraints**
    - External API limitations and capabilities (see `../../../../project/DEPENDENCIES.md`)

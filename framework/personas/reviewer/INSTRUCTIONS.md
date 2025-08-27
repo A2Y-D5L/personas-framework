@@ -190,43 +190,93 @@ Refer to `../../../../project/STANDARDS.md` and `../../../../project/contexts/re
    - Load testing results and capacity planning
    - Performance monitoring and alerting
 
+## Framework Directory Structure
+
+The Personas Framework uses a three-tier directory structure with distinct purposes:
+
+### 🏗️ Framework Personas (`.personas/framework/personas/`)
+
+**Purpose:** Universal quality assurance and review definitions
+
+**Reviewer-Specific Framework Content:**
+
+- `INSTRUCTIONS.md` - Universal Reviewer persona definition and methodologies
+- `CONTEXT-GUIDE.md` - General quality assessment and review patterns
+- `QUICK-START.md` - Universal quick-start guide for review workflows
+
+### 🎯 Project Contexts (`.personas/project/contexts/reviewer/`)
+
+**Purpose:** Project-specific quality standards and review customizations
+
+**Reviewer-Specific Project Context:**
+
+- `REVIEW-CRITERIA.md` - Project-specific quality standards and criteria
+- Technology-specific security and performance review patterns
+- Domain-specific compliance and validation requirements
+- Project-specific quality metrics and assessment frameworks
+
+### 📋 Project Todos (`.personas/project/todos/reviewer/`)
+
+**Purpose:** Active review and quality assurance task management
+
+**Reviewer Task Management:**
+
+- `current/` - Active review tasks and quality assessments
+- `backlog/` - Scheduled reviews and quality improvement initiatives
+- `completed/` - Archive of completed reviews and quality findings
+
+### Review Context Application
+
+**Universal Standards (Framework):**
+
+- Core code quality and security assessment methodologies
+- Standard review processes and quality gate definitions
+- Universal handoff protocols and finding communication patterns
+
+**Project-Specific Standards (Project Context):**
+
+- Technology-specific quality criteria and security requirements
+- Domain-specific compliance and validation standards
+- Team-specific review processes and quality expectations
+
+**Active Review Work (Project Todos):**
+
+- Current review requests and their specific scope
+- Quality improvement initiatives and their progress
+- Historical review findings and their resolution status
+
 ## Context Hierarchy
 
-### Priority 1: Essential Context (Review First)
+### Priority 1: Framework Understanding (Read-Only Reference)
 
-1. **Code Analysis and Review Documents**
-   - `/analysis/white-glove-review.md` - Comprehensive code analysis results
-   - `/analysis/comprehensive-code-review.md` - Detailed technical review
-   - Recent analysis documents and findings
-   - Historical quality issues and patterns
+1. **Universal Reviewer Definition**
+   - `.personas/framework/personas/reviewer/INSTRUCTIONS.md` - Core review responsibilities and methodologies
+   - Universal quality assessment patterns and review frameworks
+   - Project-agnostic quality standards and security practices
 
-2. **Technical Specifications for Compliance**
-   - `../../../../project/TECH-SPEC.md` - Technical requirements and standards
-   - API specifications and interface contracts
-   - Performance and quality requirements
-   - Security and compliance requirements
+### Priority 2: Project Adaptation (Actively Customize)
 
-### Priority 2: Supporting Context (For Complex Reviews)
+1. **Project-Specific Context**
+   - `.personas/project/contexts/reviewer/` - Project-specific review adaptations and customizations
+   - Technology-specific quality criteria and security requirements
+   - Domain-specific compliance and validation standards
 
-1. **Current Implementation State vs. Requirements**
-   - Recent code changes and their scope
-   - Implementation status and completion level
-   - Test results and validation outcomes
-   - Integration testing and quality metrics
+2. **Technical Specifications**
+   - `.personas/project/TECH-SPEC.md` - Project architecture and quality requirements
+   - `.personas/project/STANDARDS.md` - Project quality standards and conventions
+   - `.personas/project/DEPENDENCIES.md` - External dependencies and security constraints
 
-2. **Quality Standards and Guidelines**
-   - Coding standards and best practices documentation
-   - Previous review results and recommendations
-   - Quality metrics baselines and targets
-   - Industry standards and compliance requirements
+### Priority 3: Active Work Execution (Continuously Update)
 
-### Priority 3: Background Context (Reference as Needed)
+1. **Current Review Tasks and Workflow**
+   - `.personas/project/todos/reviewer/current/` - Active review tasks requiring immediate attention
+   - Specific review acceptance criteria and quality requirements
+   - Dependencies and coordination requirements with other personas
 
-1. **Historical Issues and Patterns**
-   - Previous security vulnerabilities and their fixes
-   - Performance issues and optimization history
-   - Code quality improvements and their impact
-   - Technical debt accumulation and resolution patterns
+2. **Review History and Future Work**
+   - `.personas/project/todos/reviewer/backlog/` - Planned future review initiatives
+   - `.personas/project/todos/reviewer/completed/` - Historical review work and quality findings
+   - Pattern analysis and lessons learned from previous reviews
 
 2. **Project Context and Organization**
    - Repository structure and module organization

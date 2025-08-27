@@ -114,43 +114,102 @@ The Engineer persona is responsible for all hands-on implementation work, includ
    - Update integration guides if applicable
    - Document any new dependencies or requirements
 
+## Framework Directory Structure
+
+The Personas Framework uses a three-tier directory structure with distinct purposes:
+
+### 🏗️ Framework Personas (`.personas/framework/personas/`)
+
+**Purpose:** Universal persona definitions that apply to all projects
+
+- **Contains:** Core persona instructions, universal workflows, handoff protocols
+- **Scope:** Project-agnostic definitions of how personas operate
+- **Usage:** Read-only reference for understanding persona responsibilities
+- **Modification:** Do not modify - these are framework definitions
+
+**Engineer-Specific Framework Content:**
+
+- `INSTRUCTIONS.md` - Universal Engineer persona definition and workflows
+- `CONTEXT-GUIDE.md` - General context discovery and usage patterns
+- `QUICK-START.md` - Universal quick-start guide for Engineer persona
+
+### 🎯 Project Contexts (`.personas/project/contexts/engineer/`)
+
+**Purpose:** Project-specific context and Engineer persona customizations
+
+- **Contains:** Technology patterns, domain knowledge, project-specific practices
+- **Scope:** Tailored to your specific project, technology stack, and team
+- **Usage:** Actively customize and maintain for your project needs
+- **Modification:** Encouraged - adapt to your project requirements
+
+**Engineer-Specific Project Context:**
+
+- `IMPLEMENTATION-PATTERNS.md` - Project-specific coding patterns and conventions
+- `tools/` - Project-specific development tools and utilities
+- Technology-specific integration patterns and examples
+- Domain-specific implementation guidelines and standards
+
+### 📋 Project Todos (`.personas/project/todos/engineer/`)
+
+**Purpose:** Active task management for Engineer persona work
+
+- **Contains:** Current tasks, backlog items, completed work
+- **Scope:** Dynamic, operational content that changes frequently
+- **Usage:** Create, update, and manage engineering tasks
+- **Modification:** Constant - reflects current work state
+
+**Engineer Task Management:**
+
+- `current/` - Active implementation tasks requiring immediate attention
+- `backlog/` - Planned engineering work and feature implementations
+- `completed/` - Archive of finished engineering tasks and outcomes
+
+### Directory Interaction Patterns
+
+**Context Discovery Flow:**
+
+1. **Start with Framework:** Understand universal persona responsibilities
+2. **Apply Project Context:** Layer in project-specific patterns and practices
+3. **Execute via Todos:** Use task management for actual work coordination
+
+**Customization Strategy:**
+
+- **Never modify:** Framework persona definitions
+- **Actively customize:** Project context files for your specific needs
+- **Continuously update:** Todo management based on current work
+
 ## Context Hierarchy
 
-### Priority 1: Essential Context (Review First)
+### Priority 1: Framework Understanding (Read-Only Reference)
 
-1. **Active Implementation Tasks**
-   - `../../../../project/todos/engineer/current/` - Current implementation requirements (see `../../../../project/todos/README.md`)
-   - Specific task acceptance criteria and scope boundaries
-   - Dependencies and integration requirements
+1. **Universal Persona Definition**
+   - `.personas/framework/personas/engineer/INSTRUCTIONS.md` - Core persona responsibilities and methodologies
+   - Universal workflows, handoff protocols, and standard procedures
+   - Project-agnostic best practices and quality standards
+
+### Priority 2: Project Adaptation (Actively Customize)
+
+1. **Project-Specific Context**
+   - `.personas/project/contexts/engineer/` - Project-specific adaptations and customizations
+   - Technology-specific patterns, domain knowledge, and project standards
+   - Team-specific processes and customized workflows
 
 2. **Technical Specifications**
-   - `../../../../project/TECH-SPEC.md` - Core architecture and API specifications
-   - API compatibility requirements and constraints
-   - Performance and reliability expectations
+   - `.personas/project/TECH-SPEC.md` - Project architecture and technical requirements
+   - `.personas/project/STANDARDS.md` - Project coding standards and conventions
+   - `.personas/project/DEPENDENCIES.md` - External dependencies and constraints
 
-### Priority 2: Supporting Context (For Complex Tasks)
+### Priority 3: Active Work Execution (Continuously Update)
 
-1. **Code Analysis Results**
-   - `../../../../project/contexts/engineer/` - Engineering-specific project context and patterns
-   - `/analysis/` - Code quality analysis and recommendations (if available)
-   - Existing code patterns and architectural decisions
+1. **Current Tasks and Workflow**
+   - `.personas/project/todos/engineer/current/` - Active tasks requiring immediate attention
+   - Specific task acceptance criteria and implementation requirements
+   - Dependencies and coordination requirements with other personas
 
-2. **Test Requirements and Patterns**
-   - Existing test suites and testing patterns
-   - Performance benchmarks and validation criteria
-   - Integration test examples and requirements
-
-### Priority 3: Background Context (Reference as Needed)
-
-1. **Project Structure and Organization**
-   - Repository structure and module organization
-   - Build and deployment procedures
-   - Documentation and example patterns
-
-2. **Historical Implementation Patterns**
-   - Previous implementation decisions and rationale
-   - Performance optimization examples
-   - Error handling patterns and best practices
+2. **Work History and Planning**
+   - `.personas/project/todos/engineer/backlog/` - Planned future work and initiatives
+   - `.personas/project/todos/engineer/completed/` - Historical work and outcomes
+   - Pattern analysis and lessons learned from previous tasks
 
 ## Handoff Protocols
 
