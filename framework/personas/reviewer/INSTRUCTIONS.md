@@ -500,6 +500,40 @@ All Reviewer tasks are managed in `.personas/project/todos/reviewer/`:
 
 ## Handoff Protocols
 
+### Automated Trigger Integration
+
+**`#readyforreview` Trigger Processing:**
+
+When receiving automated handoffs from Engineer `#readyforreview` triggers:
+
+1. **Validate Handoff Package:**
+   - Verify implementation completeness and test results
+   - Check documentation updates and integration verification
+   - Confirm all acceptance criteria are addressed
+
+2. **Prioritize Review:**
+   - HIGH: Critical bugs, security fixes, blocking features
+   - MEDIUM: Standard feature implementations and optimizations
+   - LOW: Refactoring, documentation, and nice-to-have improvements
+
+3. **Conduct Review:**
+   - Follow standard review procedures
+   - Focus on areas highlighted in handoff package
+   - Validate against original requirements and acceptance criteria
+
+4. **Provide Feedback:**
+   - **Approved:** Move to completed with approval timestamp
+   - **Changes Requested:** Detailed feedback for Engineer changes-requested queue
+   - **Major Issues:** Route back to Planner if architectural problems identified
+
+**`#checkforfeedback` Response:**
+
+Support Engineer feedback checking by ensuring:
+- Review feedback is complete and actionable
+- Approval/rejection status is clearly documented
+- Specific change requirements are detailed
+- Timeline expectations are communicated
+
 ### Receiving Handoffs
 
 **From Engineer → Reviewer:**

@@ -3,7 +3,7 @@
 **Template Version:** 1.0  
 **TODO Structure:**### Project-Specific Guidelines
 
-### [Your Project Name] Context
+## [Your Project Name] Context
 
 Customize this section for your specific project domain and technology stack:
 
@@ -22,18 +22,19 @@ This template provides a two-tier TODO management system that separates framewor
 
 ```text
 .personas/project/todos/
-├── engineer/        # Implementation and technical tasks
-│   ├── current/     # Active implementation tasks
-│   ├── backlog/     # Future implementation needs
-│   └── completed/   # Archived completed tasks
-├── planner/         # Architecture and planning tasks
-│   ├── current/     # Active planning tasks
-│   ├── backlog/     # Future planning needs
-│   └── completed/   # Archived planning tasks
-└── reviewer/        # Quality and analysis tasks
-    ├── current/     # Active review tasks
-    ├── backlog/     # Pending review requests
-    └── completed/   # Archived review tasks
+├── engineer/             # Implementation and technical tasks
+│   ├── backlog/          # Future implementation needs
+│   ├── in-progress/      # Active implementation tasks
+│   ├── changes-requested/ # Tasks returned from review
+│   └── completed/        # Archived completed tasks
+├── planner/              # Architecture and planning tasks
+│   ├── current/          # Active planning tasks
+│   ├── backlog/          # Future planning needs
+│   └── completed/        # Archived planning tasks
+└── reviewer/             # Quality and analysis tasks
+    ├── current/          # Active review tasks
+    ├── backlog/          # Pending review requests
+    └── completed/        # Archived review tasks
 ```
 
 ## Two-Tier System
@@ -68,18 +69,21 @@ Framework coordination and meta-tasks are managed in the same project-level dire
 ### Task Assignment Rules
 
 **Engineer Tasks** (`.personas/project/todos/engineer/`):
+
 - Feature implementation and bug fixes
 - Performance optimization
 - Testing and validation
 - Code refactoring and maintenance
 
 **Planner Tasks** (`.personas/project/todos/planner/`):
+
 - Architecture design and modification
 - Feature roadmapping and breakdown
 - Risk assessment and mitigation
 - Integration planning
 
 **Reviewer Tasks** (`.personas/project/todos/reviewer/`):
+
 - Code quality assessment
 - Security analysis
 - Performance review

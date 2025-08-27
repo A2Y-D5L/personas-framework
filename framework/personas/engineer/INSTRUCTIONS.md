@@ -217,9 +217,28 @@ The Personas Framework uses a three-tier directory structure with distinct purpo
 
 All Engineer tasks are managed in `.personas/project/todos/engineer/`:
 
-- **`current/`** - Active implementation tasks currently being worked on
 - **`backlog/`** - Planned implementation tasks waiting to be started
+- **`in-progress/`** - Active implementation tasks currently being worked on
+- **`changes-requested/`** - Tasks returned from review with feedback
 - **`completed/`** - Completed implementation tasks archived for reference
+
+### Task Workflow
+
+The Engineer persona follows a four-stage workflow:
+
+```text
+backlog/ → in-progress/ → [review] → completed/
+                            ↓
+                      changes-requested/ → in-progress/
+```
+
+**Workflow Rules:**
+
+1. **Backlog → In Progress:** Move when ready to start implementation with clear requirements
+2. **In Progress → Review:** Hand off complete implementations for quality review
+3. **Review → Completed:** Successful review leads to completion archival
+4. **Review → Changes Requested:** Review feedback requiring modifications
+5. **Changes Requested → In Progress:** Resume work to address review feedback
 
 ### Task Types and Assignment Rules
 
@@ -241,15 +260,20 @@ All Engineer tasks are managed in `.personas/project/todos/engineer/`:
 
 ### Task Prioritization
 
-**Current Tasks (`/current/`):**
+**In Progress Tasks (`/in-progress/`):**
 - HIGH: Critical bugs, security fixes, blocking issues
 - MEDIUM: Feature implementations, optimizations
 - LOW: Nice-to-have improvements, refactoring
 
 **Backlog Management (`/backlog/`):**
 - Prioritize based on project needs and dependencies
-- Move to `/current/` when ready to begin implementation
+- Move to `/in-progress/` when ready to begin implementation
 - Coordinate with Planner for architectural dependencies
+
+**Changes Requested (`/changes-requested/`):**
+- Review feedback requiring immediate attention
+- Move to `/in-progress/` when ready to address feedback
+- Prioritize based on severity of issues identified
 
 **Completion Archival (`/completed/`):**
 - Move completed tasks with results and learnings documented

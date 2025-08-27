@@ -199,6 +199,7 @@ Each persona uses a 3-tier priority system for context filtering:
 The framework uses a unified TODO management system where all task management occurs at the project level:
 
 **Project-Level Task Management** (`.personas/project/todos/[persona]/`)
+
 - All implementation tasks specific to the current project
 - Framework coordination tasks (prefixed with "framework-")
 - Feature development and bug fixes

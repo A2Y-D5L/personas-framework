@@ -91,6 +91,27 @@ The Agent-Manager persona is responsible for maintaining the organizational heal
 - **"review", "analyze", "assess", "quality", "security"** → Reviewer
 - **"organize", "archive", "update docs", "housekeeping", "coordinate"** → Agent-Manager
 
+**User Trigger Commands:**
+
+The Agent-Manager coordinates automated workflow triggers initiated by users:
+
+- **`#readyforreview`** → Process Engineer handoff to Reviewer
+- **`#checkforfeedback`** → Process Reviewer feedback to Engineer
+
+**Trigger Coordination Process:**
+
+1. **`#readyforreview` Handling:**
+   - Validate Engineer task completion
+   - Create handoff documentation package
+   - Route to Reviewer with priority notification
+   - Update task tracking and status logs
+
+2. **`#checkforfeedback` Handling:**
+   - Check Reviewer completed feedback
+   - Route approved tasks to Engineer completed archive
+   - Route change requests back to Engineer with feedback summary
+   - Generate status update for user
+
 **Coordination Process:**
 
 1. **Intake:** Identify task type and required persona
