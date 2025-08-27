@@ -1,4 +1,4 @@
-# Dependencies Template
+# [Project Name] Dependencies
 
 **Project:** [Project Name]  
 **Updated:** [Date]

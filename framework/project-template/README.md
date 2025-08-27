@@ -33,8 +33,8 @@ Before customizing this template, understand the three-tier framework structure:
 ## Directory Structure
 
 ```text
-.personas/project/              # This is the Project + Operational Tier
-├── README.md                 # This file - customize for your project
+.personas/project/           # This is the Project + Operational Tier
+├── README.md                # This file - customize for your project
 ├── TECH-SPEC.md             # Technical specifications (template)
 ├── ARCHITECTURE.md          # System architecture (template)
 ├── STANDARDS.md             # Development standards (template)
