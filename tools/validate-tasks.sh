@@ -231,10 +231,7 @@ validate_all_tasks() {
         ".personas/project/todos/engineer"
         ".personas/project/todos/planner"
         ".personas/project/todos/reviewer"
-        ".personas/framework/personas/engineer/todos"
-        ".personas/framework/personas/planner/todos"
-        ".personas/framework/personas/reviewer/todos"
-        ".personas/framework/personas/agent-manager/todos"
+        ".personas/project/todos/agent-manager"
     )
     
     for todo_dir in "${todo_dirs[@]}"; do

@@ -38,22 +38,23 @@ This template provides a two-tier TODO management system that separates framewor
 
 ## Two-Tier System
 
-### Project-Specific Tasks (`.personas/project/todos/`)
+### Project-Level Task Management (`.personas/project/todos/`)
 
-These directories contain tasks specific to the go-stream project implementation:
+These directories contain all tasks for the project:
 
 - **Engineer Tasks:** Code implementation, debugging, testing, optimization
 - **Planner Tasks:** Architecture design, feature planning, roadmapping
 - **Reviewer Tasks:** Code reviews, quality analysis, security assessment
+- **Agent-Manager Tasks:** Coordination, documentation, process improvements
 
-### Framework-Level Tasks (`.personas/framework/personas/[persona]/todos/`)
+### Framework Coordination Tasks
 
-Framework coordination and meta-tasks are managed separately in the .personas/framework directory:
+Framework coordination and meta-tasks are managed in the same project-level directories with a "framework-" prefix:
 
-- **Cross-persona coordination**
-- **Framework documentation updates**
-- **Process improvements**
-- **Persona workflow enhancements**
+- **Cross-persona coordination** → `.personas/project/todos/agent-manager/`
+- **Framework documentation updates** → Appropriate persona's `.personas/project/todos/[persona]/`
+- **Process improvements** → `.personas/project/todos/agent-manager/`
+- **Persona workflow enhancements** → Respective persona's `.personas/project/todos/[persona]/`
 
 ## Task Management Workflow
 
@@ -204,7 +205,7 @@ This project focuses on NATS messaging and streaming in Go. Task creation should
 
 When tasks require coordination between personas:
 
-1. **Create coordination task** in `.personas/framework/personas/agent-manager/todos/coordination/`
+1. **Create coordination task** in `.personas/project/todos/agent-manager/` with "framework-" prefix
 2. **Reference project tasks** from coordination task
 3. **Facilitate handoffs** through Agent-Manager persona
 4. **Track dependencies** across persona boundaries

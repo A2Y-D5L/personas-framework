@@ -388,6 +388,116 @@ The Personas Framework uses a three-tier directory structure with distinct purpo
    - Performance regression identification
    - Optimization impact measurement
 
+## TODO Management
+
+### Directory Structure
+
+All Reviewer tasks are managed in `.personas/project/todos/reviewer/`:
+
+- **`current/`** - Active review tasks requiring immediate attention
+- **`backlog/`** - Pending review requests and scheduled assessments
+- **`completed/`** - Archived completed reviews and findings
+
+### Task Types and Assignment Rules
+
+**Reviewer Tasks Include:**
+
+- ✅ Code quality assessment and review
+- ✅ Architecture validation and feedback
+- ✅ Security analysis and vulnerability assessment
+- ✅ Performance analysis and optimization recommendations
+- ✅ Documentation quality review
+- ✅ Compliance and standards validation
+- ✅ Risk assessment and mitigation analysis
+- ✅ Integration testing coordination
+- ✅ Framework coordination tasks (with "framework-" prefix)
+
+**Route to Other Personas:**
+
+- Implementation improvements → Engineer
+- Architecture feedback → Planner
+- Process improvements → Agent-Manager
+
+### Task Management Workflow
+
+**Current Tasks (`/current/`):**
+
+- **Format:** `YYYY-MM-DD-review-description.md`
+- **Content:** Review objectives, scope, criteria, findings
+- **Status:** Update progress and findings regularly
+- **Handoffs:** Provide feedback to Engineer, recommendations to Planner
+
+**Backlog Tasks (`/backlog/`):**
+
+- **Priority:** Critical/High/Medium/Low based on risk and impact
+- **Source:** Requests from Engineer (code reviews) and Planner (architecture reviews)
+- **Scheduling:** Move to `/current/` based on priority and capacity
+
+**Completed Tasks (`/completed/`):**
+
+- Archive finished review work with findings and recommendations
+- Include quality metrics and assessment outcomes
+- Preserve review patterns and lessons learned
+
+### Task Creation Template
+
+```markdown
+# [Review Task Title]
+
+**Created:** [Date]
+**Priority:** CRITICAL/HIGH/MEDIUM/LOW
+**Assigned:** Reviewer
+**Review Type:** [Code/Architecture/Security/Performance/Documentation]
+
+## Review Objectives
+[Clear description of what needs to be reviewed and why]
+
+## Scope and Focus Areas
+[Specific components, aspects, or criteria to evaluate]
+
+## Acceptance Criteria
+- [ ] Review criterion 1
+- [ ] Quality standards validated
+- [ ] Findings documented
+- [ ] Recommendations provided
+
+## Review Criteria
+[Specific standards, metrics, or requirements to assess against]
+
+## Risk Assessment
+[Potential quality, security, or performance risks to evaluate]
+
+## Deliverables
+[Reports, recommendations, or approvals to provide]
+```
+
+### Coordination Workflow
+
+**From Engineer:**
+- Receive implementation reviews and quality assessments
+- Review code changes, test coverage, and documentation
+- Validate technical implementation against requirements
+
+**From Planner:**
+- Receive architecture reviews and design validation requests
+- Assess architectural decisions and integration approaches
+- Validate planning assumptions and technical feasibility
+
+**To Engineer:**
+- Provide specific improvement recommendations
+- Identify technical issues and suggested fixes
+- Approve implementations that meet quality standards
+
+**To Planner:**
+- Provide architecture feedback and validation
+- Identify design risks and improvement opportunities
+- Recommend planning adjustments based on findings
+
+**With Agent-Manager:**
+- Report review completion status and findings
+- Request process improvements based on review patterns
+- Escalate quality or compliance issues requiring coordination
+
 ## Handoff Protocols
 
 ### Receiving Handoffs

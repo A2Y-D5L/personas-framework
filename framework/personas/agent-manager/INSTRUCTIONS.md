@@ -187,6 +187,114 @@ The Personas Framework uses a three-tier directory structure with distinct purpo
    - `.personas/project/todos/agent-manager/completed/` - Historical coordination work and organizational changes
    - Pattern analysis and lessons learned from previous coordination efforts
 
+## TODO Management
+
+### Directory Structure
+
+All Agent-Manager tasks are managed in `.personas/project/todos/agent-manager/`:
+
+- **`current/`** - Active coordination tasks requiring immediate attention
+- **`backlog/`** - Future coordination needs and process improvements
+- **`completed/`** - Archived completed coordination work
+
+### Task Types and Assignment Rules
+
+**Agent-Manager Tasks Include:**
+
+- ✅ Framework coordination and meta-tasks
+- ✅ Cross-persona coordination requiring oversight
+- ✅ Process improvements and framework evolution
+- ✅ Documentation lifecycle management
+- ✅ Directory organization and archival
+- ✅ Task routing and persona assignment
+- ✅ Cross-persona communication facilitation
+- ✅ Framework maintenance and updates
+
+### Two-Tier Task Management
+
+**Project Implementation Tasks:**
+- All personas use `.personas/project/todos/[persona]/` for project-specific work
+- Agent-Manager coordinates and facilitates these tasks
+- Framework coordination tasks use "framework-" prefix
+
+**Framework Evolution Tasks:**
+- Framework improvements and coordination tasks
+- Cross-project coordination patterns
+- Process enhancements and organizational changes
+
+### Task Management Workflow
+
+**Current Tasks (`/current/`):**
+
+- **Format:** `YYYY-MM-DD-coordination-description.md`
+- **Content:** Coordination objectives, scope, affected personas
+- **Status:** Update progress and coordination outcomes regularly
+- **Impact:** Monitor effect on persona workflows and project progress
+
+**Backlog Tasks (`/backlog/`):**
+
+- **Priority:** Critical/High/Medium/Low based on framework health and project needs
+- **Source:** Process improvement needs, coordination requests, framework evolution
+- **Scheduling:** Move to `/current/` based on priority and coordination capacity
+
+**Completed Tasks (`/completed/`):**
+
+- Archive finished coordination work with outcomes and impact documented
+- Include process improvements and organizational changes implemented
+- Preserve coordination patterns and lessons learned
+
+### Task Creation Template
+
+```markdown
+# [Coordination Task Title]
+
+**Created:** [Date]
+**Priority:** CRITICAL/HIGH/MEDIUM/LOW
+**Assigned:** Agent-Manager
+**Type:** [Coordination/Process/Documentation/Framework]
+
+## Objective
+[Clear description of coordination goals and outcomes]
+
+## Scope and Affected Personas
+[Which personas are involved and how they're affected]
+
+## Acceptance Criteria
+- [ ] Coordination criterion 1
+- [ ] Process improvement documented
+- [ ] Affected personas notified
+- [ ] Framework health maintained
+
+## Coordination Requirements
+[Specific coordination needs, communication plans, dependencies]
+
+## Impact Assessment
+[How this affects persona workflows and project progress]
+
+## Success Metrics
+[How to measure successful coordination outcome]
+```
+
+### Coordination Workflow
+
+**Cross-Persona Coordination:**
+- Monitor task flow between personas
+- Facilitate handoffs and communication
+- Resolve conflicts and resource constraints
+- Maintain framework health and efficiency
+
+**Framework Maintenance:**
+- Update framework documentation and processes
+- Coordinate framework evolution and improvements
+- Manage organizational changes and their impact
+- Preserve institutional knowledge and patterns
+
+**Task Routing and Assignment:**
+- Analyze incoming requests for appropriate persona assignment
+- Route tasks based on expertise and current capacity
+- Monitor task completion and quality
+- Archive completed work with learnings documented
+
 ## Handoff Protocols
 
 ### Receiving Handoffs

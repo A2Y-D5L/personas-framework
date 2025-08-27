@@ -211,6 +211,94 @@ The Personas Framework uses a three-tier directory structure with distinct purpo
    - `.personas/project/todos/engineer/completed/` - Historical work and outcomes
    - Pattern analysis and lessons learned from previous tasks
 
+## TODO Management
+
+### Directory Structure
+
+All Engineer tasks are managed in `.personas/project/todos/engineer/`:
+
+- **`current/`** - Active implementation tasks currently being worked on
+- **`backlog/`** - Planned implementation tasks waiting to be started
+- **`completed/`** - Completed implementation tasks archived for reference
+
+### Task Types and Assignment Rules
+
+**Engineer Tasks Include:**
+
+- ✅ Code implementation and modifications
+- ✅ Bug fixes and debugging
+- ✅ Test writing and validation
+- ✅ Performance optimization
+- ✅ API integration work
+- ✅ Technical troubleshooting
+- ✅ Framework coordination tasks (with "framework-" prefix)
+
+**Route to Other Personas:**
+
+- Architecture decisions → Planner
+- Quality assessment → Reviewer
+- Documentation coordination → Agent-Manager
+
+### Task Prioritization
+
+**Current Tasks (`/current/`):**
+- HIGH: Critical bugs, security fixes, blocking issues
+- MEDIUM: Feature implementations, optimizations
+- LOW: Nice-to-have improvements, refactoring
+
+**Backlog Management (`/backlog/`):**
+- Prioritize based on project needs and dependencies
+- Move to `/current/` when ready to begin implementation
+- Coordinate with Planner for architectural dependencies
+
+**Completion Archival (`/completed/`):**
+- Move completed tasks with results and learnings documented
+- Add completion date to filename
+- Preserve implementation decisions and patterns for future reference
+
+### Task Creation Template
+
+```markdown
+# [Task Title]
+
+**Created:** [Date]
+**Priority:** HIGH/MEDIUM/LOW
+**Assigned:** Engineer
+**Estimated Effort:** S/M/L
+
+## Objective
+[Clear description of what needs to be implemented]
+
+## Acceptance Criteria
+- [ ] Criterion 1
+- [ ] Criterion 2
+- [ ] Tests written and passing
+- [ ] Documentation updated
+
+## Technical Notes
+[Implementation notes, constraints, dependencies]
+
+## Handoff Requirements
+[What needs to be delivered to next persona]
+```
+
+### Coordination Workflow
+
+**From Planner:**
+- Receive implementation tasks with architecture decisions
+- Clear scope and acceptance criteria provided
+- Dependencies and integration points identified
+
+**To Reviewer:**
+- Hand off completed implementations for quality review
+- Include test results and performance validation
+- Provide documentation updates
+
+**With Agent-Manager:**
+- Report completion status for archival
+- Request documentation coordination
+- Escalate cross-persona dependencies
+
 ## Handoff Protocols
 
 ### Receiving Handoffs

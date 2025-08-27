@@ -289,6 +289,111 @@ Contingency Plan: [What to do if risk materializes]
 Owner: [Who is responsible for monitoring]
 ```
 
+## TODO Management
+
+### Directory Structure
+
+All Planner tasks are managed in `.personas/project/todos/planner/`:
+
+- **`current/`** - Active planning tasks requiring immediate attention
+- **`backlog/`** - Future planning needs and initiatives
+- **`completed/`** - Archived completed planning work
+
+### Task Types and Assignment Rules
+
+**Planner Tasks Include:**
+
+- ✅ Architecture design and system planning
+- ✅ Feature roadmapping and breakdown
+- ✅ Risk assessment and dependency analysis
+- ✅ Performance and scalability planning
+- ✅ Integration planning with external systems
+- ✅ Resource estimation and timeline development
+- ✅ Technical specification creation
+- ✅ Migration and deployment planning
+- ✅ Framework coordination tasks (with "framework-" prefix)
+
+**Route to Other Personas:**
+
+- Implementation work → Engineer
+- Quality validation → Reviewer
+- Documentation coordination → Agent-Manager
+
+### Task Management Workflow
+
+**Current Tasks (`/current/`):**
+
+- **Format:** `YYYY-MM-DD-task-description.md`
+- **Content:** Planning objectives, constraints, deliverables
+- **Status:** Update progress regularly
+- **Handoffs:** Coordinate with Engineer for implementation, Reviewer for validation
+
+**Backlog Tasks (`/backlog/`):**
+
+- **Priority:** High/Medium/Low based on project needs
+- **Dependencies:** Map to current development priorities
+- **Scheduling:** Move to `/current/` when ready to begin
+
+**Completed Tasks (`/completed/`):**
+
+- Archive finished planning work with outcomes documented
+- Include architectural decisions and their rationale
+- Preserve planning patterns for future reference
+
+### Task Creation Template
+
+```markdown
+# [Planning Task Title]
+
+**Created:** [Date]
+**Priority:** HIGH/MEDIUM/LOW
+**Assigned:** Planner
+**Estimated Effort:** S/M/L
+
+## Objective
+[Clear description of planning goals and outcomes]
+
+## Scope and Constraints
+[Boundaries, limitations, and requirements]
+
+## Acceptance Criteria
+- [ ] Planning criterion 1
+- [ ] Architecture documented
+- [ ] Dependencies identified
+- [ ] Handoff package prepared
+
+## Architectural Considerations
+[Design patterns, technology choices, integration points]
+
+## Risk Assessment
+[Potential risks and mitigation strategies]
+
+## Handoff Requirements
+[What needs to be delivered to implementation team]
+```
+
+### Coordination Workflow
+
+**From Requirements/Stakeholders:**
+- Receive planning requests and objectives
+- Understand business goals and technical constraints
+- Clarify scope and success criteria
+
+**To Engineer:**
+- Provide clear implementation plans with architecture
+- Include acceptance criteria and technical specifications
+- Coordinate dependencies and integration points
+
+**To Reviewer:**
+- Request architecture validation and feedback
+- Coordinate quality requirements and standards
+- Align on testing and validation strategies
+
+**With Agent-Manager:**
+- Report planning completion status
+- Request documentation coordination
+- Escalate resource or timeline conflicts
+
 ## Handoff Protocols
 
 ### Receiving Handoffs

@@ -25,7 +25,7 @@ An extensible, persona-based agent coordination framework designed to reduce cog
 3. **Start Using Personas:**
    - Review the 2-minute Quick-Start guides in each persona directory
    - Begin creating tasks in `.personas/project/todos/[persona]/current/`
-   - Use framework coordination in `.personas/framework/personas/[persona]/todos/` as needed
+   - Use "framework-" prefix for framework coordination tasks
 
 ### Framework Structure
 
@@ -114,29 +114,23 @@ The framework uses a three-tier architecture that separates universal definition
 - Directory organization and archival
 - Cross-persona communication facilitation
 
-## Two-Tier TODO System
+## Unified TODO System
 
-### Framework-Level Tasks
-
-**Location:** `.personas/framework/personas/[persona]/todos/`
-
-- Framework coordination and meta-tasks
-- Process improvements and documentation updates
-- Cross-project coordination patterns
-
-### Project-Level Tasks
+### Project-Level Task Management
 
 **Location:** `.personas/project/todos/[persona]/`
 
-- Project-specific implementation tasks
+- All project-specific implementation tasks
+- Framework coordination tasks (with "framework-" prefix)
 - Feature development and bug fixes
-- Project-specific testing and validation
+- Cross-persona coordination and meta-tasks
+- Process improvements and documentation updates
 
 ## Key Benefits
 
 - **Cognitive Load Reduction:** Clear role specialization prevents context switching
 - **Project Agnosticism:** Framework adapts to any technology stack or domain
-- **Scalable Coordination:** Two-tier system handles both framework and project concerns
+- **Unified Task Management:** Single location for all TODO management
 - **Rapid Onboarding:** 2-minute Quick-Start guides for immediate productivity
 
 ## Documentation
