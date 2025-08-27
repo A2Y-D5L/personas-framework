@@ -6,12 +6,12 @@
 
 ## Overview
 
-This is a template structure for projects using the Personas Framework. Copy this entire directory to your project's `.project/` directory and customize it for your specific project needs.
+This is a template structure for projects using the Personas Framework. Copy this entire directory to your project's `.personas/project/` directory and customize it for your specific project needs.
 
 ## Directory Structure
 
 ```
-.project/
+.personas/project/
 ├── README.md                 # This file - customize for your project
 ├── TECH-SPEC.md             # Technical specifications (template)
 ├── ARCHITECTURE.md          # System architecture (template)
@@ -36,7 +36,7 @@ This is a template structure for projects using the Personas Framework. Copy thi
 
 ```bash
 # From your project root
-cp -r /path/to/personas-framework/.project-template /path/to/your/project/.project
+cp -r /path/to/personas-framework/framework/project-template /path/to/your/project/.personas/project
 ```
 
 ### 2. Customize Core Documents

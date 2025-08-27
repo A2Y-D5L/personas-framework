@@ -1,20 +1,20 @@
 # Agent-Manager TODO Management
 
 **Persona:** 🗂️ Agent-Manager  
-**Directory:** `.agent/personas/agent-manager/todos/`  
+**Directory:** `.personas/framework/personas/agent-manager/todos/`  
 **Scope:** Framework coordination and meta-tasks  
 **Updated:** August 27, 2025
 
 ## Overview
 
-The Agent-Manager manages framework-level coordination while project-specific tasks are handled in `.project/todos/[persona]/`. This creates a clear separation between framework coordination and project implementation.
+The Agent-Manager manages framework-level coordination while project-specific tasks are handled in `.personas/project/todos/[persona]/`. This creates a clear separation between framework coordination and project implementation.
 
 ## Two-Tier TODO System
 
 ### Framework-Level Tasks (This Directory)
 
 ```text
-.agent/personas/agent-manager/todos/
+.personas/framework/personas/agent-manager/todos/
 ├── current/         # Active framework coordination
 ├── backlog/         # Future coordination needs  
 ├── completed/       # Archived coordination tasks
@@ -24,7 +24,7 @@ The Agent-Manager manages framework-level coordination while project-specific ta
 ### Project-Level Tasks (Separate Management)
 
 ```text
-.project/todos/[persona]/
+.personas/project/todos/[persona]/
 ├── current/     # Active project implementation tasks
 ├── backlog/     # Future project tasks
 └── completed/   # Archived project tasks
@@ -38,14 +38,14 @@ The Agent-Manager manages framework-level coordination while project-specific ta
 1. **Framework coordination** tasks are created in `./current/`
 2. **Cross-persona coordination** requiring framework oversight goes in `./coordination/`
 3. **Process improvements** and framework evolution tasks
-4. **Documentation lifecycle** management for .agent directory
+4. **Documentation lifecycle** management for .personas/framework directory
 
-### Project Tasks (.project/todos/)
+### Project Tasks (.personas/project/todos/)
 
 **Project Implementation:**
-1. **Engineer tasks** go to `.project/todos/engineer/current/`
-2. **Planner tasks** go to `.project/todos/planner/current/`  
-3. **Reviewer tasks** go to `.project/todos/reviewer/current/`
+1. **Engineer tasks** go to `.personas/project/todos/engineer/current/`
+2. **Planner tasks** go to `.personas/project/todos/planner/current/`  
+3. **Reviewer tasks** go to `.personas/project/todos/reviewer/current/`
 4. **Project coordination** that doesn't require framework changes
 
 ## Coordination Protocols
@@ -54,10 +54,10 @@ The Agent-Manager manages framework-level coordination while project-specific ta
 
 | Task Type | Location | Reasoning |
 |-----------|----------|-----------|
-| Code implementation | `.project/todos/engineer/` | Project-specific work |
-| Architecture planning | `.project/todos/planner/` | Project-specific work |
-| Code review | `.project/todos/reviewer/` | Project-specific work |
-| Persona workflow changes | `.agent/personas/[persona]/todos/` | Framework evolution |
+| Code implementation | `.personas/project/todos/engineer/` | Project-specific work |
+| Architecture planning | `.personas/project/todos/planner/` | Project-specific work |
+| Code review | `.personas/project/todos/reviewer/` | Project-specific work |
+| Persona workflow changes | `.personas/framework/personas/[persona]/todos/` | Framework evolution |
 | Cross-project coordination | `./coordination/` | Framework-level concern |
 | Process improvements | `./coordination/` | Framework enhancement |
 | Documentation standards | `./coordination/` | Framework consistency |

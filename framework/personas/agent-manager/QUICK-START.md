@@ -8,7 +8,7 @@
 📊 **Check:** [`./todos/coordination/`](./todos/coordination/) - Framework coordination tasks
 
 ### 2. Project Status
-📋 **Review:** [`../../../.project/todos/*/current/`](../../../.project/todos/) - All persona task status
+📋 **Review:** [`../../../../project/todos/*/current/`](../../../../project/todos/) - All persona task status
 
 ### 3. System Health
 🔧 **Monitor:** Active tasks, handoff queues, and coordination needs

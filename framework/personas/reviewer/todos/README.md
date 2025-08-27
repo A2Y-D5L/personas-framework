@@ -1,7 +1,7 @@
 # Reviewer TODO Management
 
 **Persona:** 🔍 Reviewer  
-**Directory:** `.agent/personas/reviewer/todos/`  
+**Directory:** `.personas/framework/personas/reviewer/todos/`  
 **Updated:** August 27, 2025
 
 ## Directory Structure

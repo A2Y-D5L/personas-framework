@@ -5,13 +5,13 @@
 ## Essential Context
 
 ### 1. Quality Standards
-📊 **Read:** [`../../../.project/STANDARDS.md`](../../../.project/STANDARDS.md) - Code quality requirements
+📊 **Read:** [`../../../../project/STANDARDS.md`](../../../../project/STANDARDS.md) - Code quality requirements
 
 ### 2. Current Review Tasks  
-📋 **Check:** [`../../../.project/todos/reviewer/current/`](../../../.project/todos/reviewer/current/) (see [`../../../.project/todos/README.md`](../../../.project/todos/README.md))
+📋 **Check:** [`../../../../project/todos/reviewer/current/`](../../../../project/todos/reviewer/current/) (see [`../../../../project/todos/README.md`](../../../../project/todos/README.md))
 
 ### 3. Technical Context
-🏗️ **Review:** [`../../../.project/TECH-SPEC.md`](../../../.project/TECH-SPEC.md) - Architecture for review guidance
+🏗️ **Review:** [`../../../../project/TECH-SPEC.md`](../../../../project/TECH-SPEC.md) - Architecture for review guidance
 
 ## Quick Actions
 

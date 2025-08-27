@@ -5,13 +5,13 @@
 ## Essential Context
 
 ### 1. Current Planning Tasks
-📋 **Check:** [`../../../.project/todos/planner/current/`](../../../.project/todos/planner/current/) (see [`../../../.project/todos/README.md`](../../../.project/todos/README.md))
+📋 **Check:** [`../../../../project/todos/planner/current/`](../../../../project/todos/planner/current/) (see [`../../../../project/todos/README.md`](../../../../project/todos/README.md))
 
 ### 2. Technical Architecture
-🏗️ **Read:** [`../../../.project/TECH-SPEC.md`](../../../.project/TECH-SPEC.md) - System architecture and constraints
+🏗️ **Read:** [`../../../../project/TECH-SPEC.md`](../../../../project/TECH-SPEC.md) - System architecture and constraints
 
 ### 3. Project Context
-📖 **Review:** [`../../../.project/README.md`](../../../.project/README.md) - Project overview and current state
+📖 **Review:** [`../../../../project/README.md`](../../../../project/README.md) - Project overview and current state
 
 ## Quick Actions
 

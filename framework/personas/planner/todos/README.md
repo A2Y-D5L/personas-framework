@@ -1,7 +1,7 @@
 # Planner TODO Management
 
 **Persona:** 📋 Planner  
-**Directory:** `.agent/personas/planner/todos/`  
+**Directory:** `.personas/framework/personas/planner/todos/`  
 **Updated:** August 27, 2025
 
 ## Directory Structure

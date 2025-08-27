@@ -9,42 +9,43 @@ An extensible, persona-based agent coordination framework designed to reduce cog
 1. **Copy Framework to Project:**
 
    ```bash
-   # Copy the framework to your project's .agent directory
-   cp -r personas-framework/.agent /path/to/your/project/
+   # Copy the framework to your project's .personas directory
+   cp -r personas-framework/framework /path/to/your/project/.personas/
    
-   # Copy the project template to your project's .project directory  
-   cp -r personas-framework/.project-template /path/to/your/project/.project
+   # Copy the project template to your project's .personas/project directory
+   cp -r personas-framework/framework/project-template /path/to/your/project/.personas/project
    ```
 
 2. **Customize for Your Project:**
-   - Update `.project/README.md` with your project details
-   - Create `.project/TECH-SPEC.md` with your technical specifications
-   - Populate `.project/STANDARDS.md` with your coding standards
-   - Add project-specific context in `.project/contexts/[persona]/`
+   - Update `.personas/project/README.md` with your project details
+   - Create `.personas/project/TECH-SPEC.md` with your technical specifications
+   - Populate `.personas/project/STANDARDS.md` with your coding standards
+   - Add project-specific context in `.personas/project/contexts/[persona]/`
 
 3. **Start Using Personas:**
    - Review the 2-minute Quick-Start guides in each persona directory
-   - Begin creating tasks in `.project/todos/[persona]/current/`
-   - Use framework coordination in `.agent/personas/[persona]/todos/` as needed
+   - Begin creating tasks in `.personas/project/todos/[persona]/current/`
+   - Use framework coordination in `.personas/framework/personas/[persona]/todos/` as needed
 
 ### Framework Structure
 
 ```text
-.agent/                           # Framework coordination
-├── PERSONA-FRAMEWORK.md         # Core framework documentation
-└── personas/                    # Persona definitions and workflows
-    ├── engineer/                # Implementation persona
-    ├── planner/                 # Architecture and planning persona
-    ├── reviewer/                # Quality assurance persona
-    └── agent-manager/           # Coordination persona
-
-.project/                        # Project-specific context
-├── README.md                    # Project overview
-├── TECH-SPEC.md                # Technical specifications
-├── STANDARDS.md                # Development standards
-├── DEPENDENCIES.md             # External dependencies
-├── contexts/                   # Persona-specific project context
-└── todos/                      # Project task management
+.personas/                       # Project personas directory
+├── framework/                   # Framework coordination
+│   ├── PERSONA-FRAMEWORK.md     # Core framework documentation
+│   ├── personas/                # Persona definitions and workflows
+│   │   ├── engineer/            # Implementation persona
+│   │   ├── planner/             # Architecture and planning persona
+│   │   ├── reviewer/            # Quality assurance persona
+│   │   └── agent-manager/       # Coordination persona
+│   └── project-template/        # Template for new projects
+└── project/                     # Project-specific context
+    ├── README.md                # Project overview
+    ├── TECH-SPEC.md            # Technical specifications
+    ├── STANDARDS.md            # Development standards
+    ├── DEPENDENCIES.md         # External dependencies
+    ├── contexts/               # Persona-specific project context
+    └── todos/                  # Project task management
 ```
 
 ## Core Personas
@@ -89,7 +90,7 @@ An extensible, persona-based agent coordination framework designed to reduce cog
 
 ### Framework-Level Tasks
 
-**Location:** `.agent/personas/[persona]/todos/`
+**Location:** `.personas/framework/personas/[persona]/todos/`
 
 - Framework coordination and meta-tasks
 - Process improvements and documentation updates
@@ -97,7 +98,7 @@ An extensible, persona-based agent coordination framework designed to reduce cog
 
 ### Project-Level Tasks
 
-**Location:** `.project/todos/[persona]/`
+**Location:** `.personas/project/todos/[persona]/`
 
 - Project-specific implementation tasks
 - Feature development and bug fixes
@@ -112,7 +113,7 @@ An extensible, persona-based agent coordination framework designed to reduce cog
 
 ## Documentation
 
-See `.agent/PERSONA-FRAMEWORK.md` for complete framework documentation including:
+See `.personas/framework/PERSONA-FRAMEWORK.md` for complete framework documentation including:
 
 - Detailed persona definitions and scope boundaries
 - Coordination protocols and handoff procedures

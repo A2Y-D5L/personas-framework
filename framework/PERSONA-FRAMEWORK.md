@@ -14,7 +14,7 @@ Each persona has a distinct role and scope of responsibilities, preventing cogni
 
 ### 2. Project Agnosticism
 The framework avoids project-specific references and technologies. Project-specific context is provided through:
-- **`.project/`** directory for project-specific documentation
+- **`.personas/project/`** directory for project-specific documentation
 - **Context filtering** that prioritizes relevant project materials
 - **Adaptable templates** that can be customized per project
 
@@ -92,37 +92,46 @@ Meta-tasks requiring cross-persona coordination are handled by the Agent-Manager
 
 ## Project Integration
 
-### .project Directory Structure
+### .personas Directory Structure
 
-The framework integrates with project-specific context through a standardized `.project/` directory:
+The framework integrates with project-specific context through a standardized `.personas/` directory:
 
 ```text
-.project/
-├── README.md                 # Project overview and quick start
-├── TECH-SPEC.md             # Technical specifications
-├── ARCHITECTURE.md          # System architecture documentation  
-├── STANDARDS.md             # Coding standards and conventions
-├── DEPENDENCIES.md          # External dependencies and integrations
-├── PERFORMANCE.md           # Performance requirements and benchmarks
-├── SECURITY.md              # Security requirements and guidelines
-├── contexts/                # Persona-specific project contexts
-│   ├── engineer/            # Implementation-specific context
-│   ├── planner/             # Planning-specific context
-│   ├── reviewer/            # Review-specific context
-│   └── agent-manager/       # Coordination-specific context
-└── todos/                   # Project-specific task management
-    ├── engineer/            # Implementation tasks
-    │   ├── current/         # Active implementation tasks
-    │   ├── backlog/         # Future implementation needs
-    │   └── completed/       # Archived completed tasks
-    ├── planner/             # Planning tasks
-    │   ├── current/         # Active planning tasks
-    │   ├── backlog/         # Future planning needs
-    │   └── completed/       # Archived planning tasks
-    └── reviewer/            # Review tasks
-        ├── current/         # Active review tasks
-        ├── backlog/         # Pending review requests
-        └── completed/       # Archived review tasks
+.personas/
+├── framework/                   # Framework coordination
+│   ├── PERSONA-FRAMEWORK.md     # Core framework documentation
+│   ├── personas/                # Persona definitions and workflows
+│   │   ├── engineer/            # Implementation persona
+│   │   ├── planner/             # Architecture and planning persona
+│   │   ├── reviewer/            # Quality assurance persona
+│   │   └── agent-manager/       # Coordination persona
+│   └── project-template/        # Template for new projects
+└── project/                     # Project-specific context
+    ├── README.md                # Project overview and quick start
+    ├── TECH-SPEC.md            # Technical specifications
+    ├── ARCHITECTURE.md         # System architecture documentation  
+    ├── STANDARDS.md            # Coding standards and conventions
+    ├── DEPENDENCIES.md         # External dependencies and integrations
+    ├── PERFORMANCE.md          # Performance requirements and benchmarks
+    ├── SECURITY.md             # Security requirements and guidelines
+    ├── contexts/               # Persona-specific project contexts
+    │   ├── engineer/           # Implementation-specific context
+    │   ├── planner/            # Planning-specific context
+    │   ├── reviewer/           # Review-specific context
+    │   └── agent-manager/      # Coordination-specific context
+    └── todos/                  # Project-specific task management
+        ├── engineer/           # Implementation tasks
+        │   ├── current/        # Active implementation tasks
+        │   ├── backlog/        # Future implementation needs
+        │   └── completed/      # Archived completed tasks
+        ├── planner/            # Planning tasks
+        │   ├── current/        # Active planning tasks
+        │   ├── backlog/        # Future planning needs
+        │   └── completed/      # Archived planning tasks
+        └── reviewer/           # Review tasks
+            ├── current/        # Active review tasks
+            ├── backlog/        # Pending review requests
+            └── completed/      # Archived review tasks
 ```
 
 ### Context Priority System
@@ -139,22 +148,22 @@ Each persona uses a 3-tier priority system for context filtering:
 
 The framework uses a two-tier TODO management system:
 
-1. **Framework-Level Coordination** (`.agent/personas/[persona]/todos/`)
+1. **Framework-Level Coordination** (`.personas/framework/personas/[persona]/todos/`)
    - Meta-tasks and cross-persona coordination
    - Framework maintenance and evolution
    - Process improvements and documentation updates
 
-2. **Project-Specific Tasks** (`.project/todos/[persona]/`)
+2. **Project-Specific Tasks** (`.personas/project/todos/[persona]/`)
    - Implementation tasks specific to the current project
    - Feature development and bug fixes
    - Project-specific testing and validation
 
 ### Framework-Level TODO Structure
 
-Framework coordination tasks are managed in `.agent/personas/[persona]/todos/`:
+Framework coordination tasks are managed in `.personas/framework/personas/[persona]/todos/`:
 
 ```text
-.agent/personas/[persona]/todos/
+.personas/framework/personas/[persona]/todos/
 ├── current/     # Active framework coordination tasks
 ├── backlog/     # Future coordination needs
 └── completed/   # Archived coordination tasks
@@ -162,7 +171,7 @@ Framework coordination tasks are managed in `.agent/personas/[persona]/todos/`:
 
 **Agent-Manager Coordination:**
 ```text
-.agent/personas/agent-manager/todos/
+.personas/framework/personas/agent-manager/todos/
 ├── current/         # Active coordination tasks
 ├── backlog/         # Future coordination needs
 ├── completed/       # Archived coordination tasks
@@ -171,10 +180,10 @@ Framework coordination tasks are managed in `.agent/personas/[persona]/todos/`:
 
 ### Project-Specific TODO Structure
 
-Project implementation tasks are managed in `.project/todos/[persona]/`:
+Project implementation tasks are managed in `.personas/project/todos/[persona]/`:
 
 ```text
-.project/todos/[persona]/
+.personas/project/todos/[persona]/
 ├── current/     # Active project tasks for this persona
 ├── backlog/     # Future project tasks awaiting prioritization
 └── completed/   # Archived completed project tasks
@@ -182,18 +191,18 @@ Project implementation tasks are managed in `.project/todos/[persona]/`:
 
 ### Task Assignment Rules
 
-**Project-Specific Tasks** are assigned to `.project/todos/[persona]/` based on primary responsibility:
+**Project-Specific Tasks** are assigned to `.personas/project/todos/[persona]/` based on primary responsibility:
 
-- **Implementation, debugging, optimization** → `.project/todos/engineer/`
-- **Architecture, planning, roadmapping** → `.project/todos/planner/`  
-- **Review, quality analysis, security** → `.project/todos/reviewer/`
+- **Implementation, debugging, optimization** → `.personas/project/todos/engineer/`
+- **Architecture, planning, roadmapping** → `.personas/project/todos/planner/`  
+- **Review, quality analysis, security** → `.personas/project/todos/reviewer/`
 
-**Framework-Level Tasks** are assigned to `.agent/personas/[persona]/todos/` for:
+**Framework-Level Tasks** are assigned to `.personas/framework/personas/[persona]/todos/` for:
 
-- **Process improvements and coordination** → `.agent/personas/agent-manager/todos/coordination/`
-- **Framework documentation updates** → Appropriate persona in `.agent/personas/[persona]/todos/`
-- **Cross-project coordination** → `.agent/personas/agent-manager/todos/coordination/`
-- **Persona workflow enhancements** → Respective persona's `.agent/personas/[persona]/todos/`
+- **Process improvements and coordination** → `.personas/framework/personas/agent-manager/todos/coordination/`
+- **Framework documentation updates** → Appropriate persona in `.personas/framework/personas/[persona]/todos/`
+- **Cross-project coordination** → `.personas/framework/personas/agent-manager/todos/coordination/`
+- **Persona workflow enhancements** → Respective persona's `.personas/framework/personas/[persona]/todos/`
 
 ## Coordination Protocols
 
@@ -222,7 +231,7 @@ Project implementation tasks are managed in `.project/todos/[persona]/`:
 
 ### Customization for New Projects
 
-1. **Create `.project/` directory** with project-specific context
+1. **Create `.personas/` directory** with project-specific context
 2. **Update context priorities** in persona CONTEXT-GUIDE.md files
 3. **Customize task templates** in persona TODO README.md files
 4. **Adapt handoff procedures** for project-specific workflows

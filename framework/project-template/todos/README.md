@@ -21,7 +21,7 @@ This template provides a two-tier TODO management system that separates framewor
 ## Directory Structure
 
 ```text
-.project/todos/
+.personas/project/todos/
 ├── engineer/        # Implementation and technical tasks
 │   ├── current/     # Active implementation tasks
 │   ├── backlog/     # Future implementation needs
@@ -38,7 +38,7 @@ This template provides a two-tier TODO management system that separates framewor
 
 ## Two-Tier System
 
-### Project-Specific Tasks (`.project/todos/`)
+### Project-Specific Tasks (`.personas/project/todos/`)
 
 These directories contain tasks specific to the go-stream project implementation:
 
@@ -46,9 +46,9 @@ These directories contain tasks specific to the go-stream project implementation
 - **Planner Tasks:** Architecture design, feature planning, roadmapping
 - **Reviewer Tasks:** Code reviews, quality analysis, security assessment
 
-### Framework-Level Tasks (`.agent/personas/[persona]/todos/`)
+### Framework-Level Tasks (`.personas/framework/personas/[persona]/todos/`)
 
-Framework coordination and meta-tasks are managed separately in the .agent directory:
+Framework coordination and meta-tasks are managed separately in the .personas/framework directory:
 
 - **Cross-persona coordination**
 - **Framework documentation updates**
@@ -60,25 +60,25 @@ Framework coordination and meta-tasks are managed separately in the .agent direc
 ### Creating Project Tasks
 
 1. **Identify the appropriate persona** based on task type
-2. **Create task file** in `.project/todos/[persona]/current/`
+2. **Create task file** in `.personas/project/todos/[persona]/current/`
 3. **Use standardized naming:** `YYYY-MM-DD-task-description.md`
 4. **Include project context** and acceptance criteria
 
 ### Task Assignment Rules
 
-**Engineer Tasks** (`.project/todos/engineer/`):
+**Engineer Tasks** (`.personas/project/todos/engineer/`):
 - Feature implementation and bug fixes
 - Performance optimization
 - Testing and validation
 - Code refactoring and maintenance
 
-**Planner Tasks** (`.project/todos/planner/`):
+**Planner Tasks** (`.personas/project/todos/planner/`):
 - Architecture design and modification
 - Feature roadmapping and breakdown
 - Risk assessment and mitigation
 - Integration planning
 
-**Reviewer Tasks** (`.project/todos/reviewer/`):
+**Reviewer Tasks** (`.personas/project/todos/reviewer/`):
 - Code quality assessment
 - Security analysis
 - Performance review
@@ -204,7 +204,7 @@ This project focuses on NATS messaging and streaming in Go. Task creation should
 
 When tasks require coordination between personas:
 
-1. **Create coordination task** in `.agent/personas/agent-manager/todos/coordination/`
+1. **Create coordination task** in `.personas/framework/personas/agent-manager/todos/coordination/`
 2. **Reference project tasks** from coordination task
 3. **Facilitate handoffs** through Agent-Manager persona
 4. **Track dependencies** across persona boundaries
@@ -228,10 +228,10 @@ When tasks require coordination between personas:
 
 ### Project Context
 
-- Reference `.project/TECH-SPEC.md` for requirements
-- Follow `.project/STANDARDS.md` for conventions
-- Consider `.project/DEPENDENCIES.md` for constraints
-- Use persona-specific context from `.project/contexts/[persona]/`
+- Reference `.personas/project/TECH-SPEC.md` for requirements
+- Follow `.personas/project/STANDARDS.md` for conventions
+- Consider `.personas/project/DEPENDENCIES.md` for constraints
+- Use persona-specific context from `.personas/project/contexts/[persona]/`
 
 ### Quality Gates
 

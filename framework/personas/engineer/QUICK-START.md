@@ -7,17 +7,17 @@
 ## Essential Context (Read First)
 
 ### 1. Current Tasks
-📋 **Check:** [`../../../.project/todos/engineer/current/`](../../../.project/todos/engineer/current/) (see [`../../../.project/todos/README.md`](../../../.project/todos/README.md))  
+📋 **Check:** [`../../../../project/todos/engineer/current/`](../../../../project/todos/engineer/current/) (see [`../../../../project/todos/README.md`](../../../../project/todos/README.md))  
 **Purpose:** Find your active implementation tasks  
 **Look for:** Acceptance criteria, scope, dependencies
 
 ### 2. Technical Specs
-📖 **Check:** [`/go-stream-tech-spec-v0.3.md`](../../../go-stream-tech-spec-v0.3.md)  
+📖 **Check:** [`../../../../project/TECH-SPEC.md`](../../../../project/TECH-SPEC.md)  
 **Purpose:** Understand system requirements and API design  
 **Look for:** Architecture constraints, performance requirements
 
 ### 3. Code Quality Baseline
-🔍 **Check:** [`/analysis/white-glove-review.md`](../../../analysis/white-glove-review.md)  
+🔍 **Check:** [`../../../../project/STANDARDS.md`](../../../../project/STANDARDS.md)  
 **Purpose:** Understand current quality state and standards  
 **Look for:** Known issues, quality standards, improvement areas
 

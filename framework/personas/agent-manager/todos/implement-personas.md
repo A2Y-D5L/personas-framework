@@ -7,7 +7,7 @@
 
 ## Problem Statement
 
-The current `.agent` directory is too broad and overwhelming for agents to quickly orient and act effectively. The 296-line `AGENTS.md` file contains universal instructions that create cognitive overload. Persona-specific instruction files are mostly empty, missing the specialized guidance needed for focused agent work.
+The current `.personas/framework` directory is too broad and overwhelming for agents to quickly orient and act effectively. The 296-line `AGENTS.md` file contains universal instructions that create cognitive overload. Persona-specific instruction files are mostly empty, missing the specialized guidance needed for focused agent work.
 
 **Key Issues:**
 
