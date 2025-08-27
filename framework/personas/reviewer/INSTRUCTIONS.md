@@ -117,7 +117,7 @@ The Reviewer persona is responsible for comprehensive quality assurance across a
 
 **Project-Specific Quality Criteria:**
 
-Refer to `../../../.project/STANDARDS.md` and `../../../.project/contexts/reviewer/` for:
+Refer to `../../../../project/STANDARDS.md` and `../../../../project/contexts/reviewer/` for:
 
 - **Language Conventions:** Adherence to language-specific best practices
 - **Framework Integration:** Proper use of project frameworks and libraries
@@ -201,7 +201,7 @@ Refer to `../../../.project/STANDARDS.md` and `../../../.project/contexts/review
    - Historical quality issues and patterns
 
 2. **Technical Specifications for Compliance**
-   - `../../../.project/TECH-SPEC.md` - Technical requirements and standards
+   - `../../../../project/TECH-SPEC.md` - Technical requirements and standards
    - API specifications and interface contracts
    - Performance and quality requirements
    - Security and compliance requirements
@@ -650,7 +650,7 @@ When review identifies significant documentation needs:
 **Daily Operations:**
 
 - [`/analysis/white-glove-review.md`](../../analysis/white-glove-review.md) - Code analysis results
-- [`../../../.project/TECH-SPEC.md`](../../../.project/TECH-SPEC.md) - Technical requirements
+- [`../../../../project/TECH-SPEC.md`](../../../../project/TECH-SPEC.md) - Technical requirements
 - [`/analysis/comprehensive-code-review.md`](../../analysis/comprehensive-code-review.md) - Detailed review
 
 **Review Resources:**

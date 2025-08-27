@@ -48,8 +48,8 @@ The Engineer persona is responsible for all hands-on implementation work, includ
 **Before starting any coding task:**
 
 1. **Review Context Package**
-   - Read current TODO task requirements from `.project/todos/engineer/current/` and acceptance criteria
-   - Review relevant technical specifications (see `.project/TECH-SPEC.md`)
+   - Read current TODO task requirements from `../../../../project/todos/engineer/current/` and acceptance criteria
+   - Review relevant technical specifications (see `../../../../project/TECH-SPEC.md`)
    - Check existing code analysis results (`analysis/` directory)
    - Understand test requirements and patterns
 
@@ -119,19 +119,19 @@ The Engineer persona is responsible for all hands-on implementation work, includ
 ### Priority 1: Essential Context (Review First)
 
 1. **Active Implementation Tasks**
-   - `.project/todos/engineer/current/` - Current implementation requirements (see `.project/todos/README.md`)
+   - `../../../../project/todos/engineer/current/` - Current implementation requirements (see `../../../../project/todos/README.md`)
    - Specific task acceptance criteria and scope boundaries
    - Dependencies and integration requirements
 
 2. **Technical Specifications**
-   - `.project/TECH-SPEC.md` - Core architecture and API specifications
+   - `../../../../project/TECH-SPEC.md` - Core architecture and API specifications
    - API compatibility requirements and constraints
    - Performance and reliability expectations
 
 ### Priority 2: Supporting Context (For Complex Tasks)
 
 1. **Code Analysis Results**
-   - `.project/contexts/engineer/` - Engineering-specific project context and patterns
+   - `../../../../project/contexts/engineer/` - Engineering-specific project context and patterns
    - `/analysis/` - Code quality analysis and recommendations (if available)
    - Existing code patterns and architectural decisions
 
@@ -252,7 +252,7 @@ When implementation requires significant documentation updates:
 
 **Language and Framework Guidelines:**
 
-Refer to `.project/STANDARDS.md` for project-specific:
+Refer to `../../../../project/STANDARDS.md` for project-specific:
 - Language-specific best practices and conventions
 - Framework integration patterns
 - Code style and formatting standards
@@ -261,7 +261,7 @@ Refer to `.project/STANDARDS.md` for project-specific:
 
 **External Integration:**
 
-Refer to `.project/DEPENDENCIES.md` and `.project/TECH-SPEC.md` for:
+Refer to `../../../../project/DEPENDENCIES.md` and `../../../../project/TECH-SPEC.md` for:
 - External API integration requirements
 - Third-party library usage patterns
 - Integration testing approaches
@@ -290,7 +290,7 @@ Refer to `.project/DEPENDENCIES.md` and `.project/TECH-SPEC.md` for:
 **Implementation Examples:**
 
 ```
-// Refer to .project/contexts/engineer/ for:
+// Refer to ../../../../project/contexts/engineer/ for:
 // - Language-specific error handling patterns
 // - Testing framework examples and templates
 // - Logging and observability integration
@@ -409,9 +409,9 @@ Refer to `.project/DEPENDENCIES.md` and `.project/TECH-SPEC.md` for:
 
 **Daily Operations:**
 
-- [`.project/todos/engineer/current/`](../../../.project/todos/engineer/current/) - Active implementation tasks (see [`.project/todos/README.md`](../../../.project/todos/README.md))
-- [`.project/TECH-SPEC.md`](../../../.project/TECH-SPEC.md) - Technical specifications
-- [`.project/contexts/engineer/`](../../../.project/contexts/engineer/) - Engineering-specific project context
+- [`../../../../project/todos/engineer/current/`](../../../../project/todos/engineer/current/) - Active implementation tasks (see [`../../../../project/todos/README.md`](../../../../project/todos/README.md))
+- [`../../../../project/TECH-SPEC.md`](../../../../project/TECH-SPEC.md) - Technical specifications
+- [`../../../../project/contexts/engineer/`](../../../../project/contexts/engineer/) - Engineering-specific project context
 
 **Development Resources:**
 

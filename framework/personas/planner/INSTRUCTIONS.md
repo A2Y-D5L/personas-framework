@@ -115,13 +115,13 @@ The Planner persona is responsible for high-level architectural analysis, strate
 ### Priority 1: Essential Context (Review First)
 
 1. **Technical Specifications and Architecture**
-   - `../../../.project/TECH-SPEC.md` - Core architecture and design principles
+   - `../../../../project/TECH-SPEC.md` - Core architecture and design principles
    - System architecture documentation and design decisions
    - API specifications and interface contracts
    - Performance and scalability requirements
 
 2. **Current System State**
-   - `../../../.project/todos/planner/current/` - Current planning tasks and their status (see `../../../.project/todos/README.md`)
+   - `../../../../project/todos/planner/current/` - Current planning tasks and their status (see `../../../../project/todos/README.md`)
    - Active development initiatives and their status
    - Resource allocation and capacity planning
    - Recent architectural decisions and their rationale
@@ -149,7 +149,7 @@ The Planner persona is responsible for high-level architectural analysis, strate
    - Documentation and example patterns
 
 2. **External Dependencies and Constraints**
-   - External API limitations and capabilities (see `../../../.project/DEPENDENCIES.md`)
+   - External API limitations and capabilities (see `../../../../project/DEPENDENCIES.md`)
    - Third-party library versions and compatibility
    - Deployment environment constraints
    - Compliance and security requirements
@@ -510,13 +510,13 @@ type MessageProcessor interface {
 
 **Daily Operations:**
 
-- [`../../../.project/TECH-SPEC.md`](../../../.project/TECH-SPEC.md) - Technical specifications
-- [`../../../.project/todos/planner/current/`](../../../.project/todos/planner/current/) - Active planning tasks (see [`../../../.project/todos/README.md`](../../../.project/todos/README.md))
+- [`../../../../project/TECH-SPEC.md`](../../../../project/TECH-SPEC.md) - Technical specifications
+- [`../../../../project/todos/planner/current/`](../../../../project/todos/planner/current/) - Active planning tasks (see [`../../../../project/todos/README.md`](../../../../project/todos/README.md))
 - [`/analysis/white-glove-review.md`](../../analysis/white-glove-review.md) - Technical analysis
 
 **Planning Resources:**
 
-- [`../../../.project/todos/planner/current/`](../../../.project/todos/planner/current/) - Active development initiatives (see [`../../../.project/todos/README.md`](../../../.project/todos/README.md))
+- [`../../../../project/todos/planner/current/`](../../../../project/todos/planner/current/) - Active development initiatives (see [`../../../../project/todos/README.md`](../../../../project/todos/README.md))
 - [`/analysis/`](../../analysis/) - System analysis and architectural insights
 - Project structure for understanding current organization
 

@@ -10,7 +10,7 @@
 **Must review before starting any implementation task:**
 
 #### Current Implementation Tasks
-- **Location:** [`../../../.project/todos/engineer/current/`](../../../.project/todos/engineer/current/) (see [`../../../.project/todos/README.md`](../../../.project/todos/README.md))
+- **Location:** [`../../../../project/todos/engineer/current/`](../../../../project/todos/engineer/current/) (see [`../../../../project/todos/README.md`](../../../../project/todos/README.md))
 - **Purpose:** Active tasks requiring implementation
 - **Usage:** Review scope, acceptance criteria, and dependencies
 - **Tag:** `#engineer-priority`
@@ -57,7 +57,7 @@
 ## Quick Context Lookup
 
 ### For Feature Implementation
-1. Review task in `../../../.project/todos/engineer/current/`
+1. Review task in `../../../../project/todos/engineer/current/`
 2. Check technical specifications for API requirements
 3. Review existing code patterns in project
 4. Check test coverage requirements

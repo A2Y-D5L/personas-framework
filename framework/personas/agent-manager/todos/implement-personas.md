@@ -62,7 +62,7 @@ Create focused, role-specific instruction sets that allow agents to quickly unde
 
 **Focus Areas for Agent-Manager:**
 
-- [x] `.agent` directory organization and maintenance
+- [x] `.personas/framework` directory organization and maintenance
 - [x] Documentation lifecycle management  
 - [x] TODO task validation and archival
 - [x] Persona coordination and task routing

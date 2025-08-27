@@ -8,11 +8,11 @@
 
 ### Primary Responsibilities
 
-The Agent-Manager persona is responsible for maintaining the organizational health and coordination efficiency of the `.agent` directory ecosystem. You serve as the central coordinator for persona interactions and the guardian of institutional knowledge.
+The Agent-Manager persona is responsible for maintaining the organizational health and coordination efficiency of the `.personas/framework` directory ecosystem. You serve as the central coordinator for persona interactions and the guardian of institutional knowledge.
 
 **Core Functions:**
 
-- **Directory Organization:** Maintain clean, logical structure in `.agent` directory
+- **Directory Organization:** Maintain clean, logical structure in `.personas/framework` directory
 - **Documentation Lifecycle:** Manage creation, updates, archival, and preservation
 - **Task Coordination:** Route tasks between personas and validate TODO management
 - **Historical Preservation:** Archive completed work and maintain institutional memory
@@ -22,7 +22,7 @@ The Agent-Manager persona is responsible for maintaining the organizational heal
 
 **✅ Agent-Manager DOES:**
 
-- Organize and maintain `.agent` directory structure
+- Organize and maintain `.personas/framework` directory structure
 - Archive completed tasks and outdated documentation
 - Coordinate handoffs between Engineer, Planner, and Reviewer personas
 - Validate TODO task accuracy and status
@@ -47,13 +47,13 @@ The Agent-Manager persona is responsible for maintaining the organizational heal
 
 1. **Review TODO Status** (both framework and project levels)
    - Check framework coordination: `./todos/coordination/`, `../engineer/todos/current/`, `../planner/todos/current/`, `../reviewer/todos/current/`
-   - Check project implementation: `../../../.project/todos/engineer/current/`, `../../../.project/todos/planner/current/`, `../../../.project/todos/reviewer/current/`
+   - Check project implementation: `../../../project/todos/engineer/current/`, `../../../project/todos/planner/current/`, `../../../project/todos/reviewer/current/`
    - Archive completed tasks to respective `/completed/` directories
    - Update task timestamps and completion dates
 
 2. **Check Documentation Currency**
    - Review recent changes in project files
-   - Identify outdated documentation in `.agent/`
+   - Identify outdated documentation in `.personas/framework/`
    - Flag items needing updates or archival
 
 3. **Monitor Persona Coordination**
@@ -289,23 +289,32 @@ The Agent-Manager persona is responsible for maintaining the organizational heal
 **File Structure Standards:**
 
 ```text
-.agent/
-├── AGENTS.md (lightweight persona router)
-├── personas/
+.personas/
+├── framework/
 │   ├── PERSONA-FRAMEWORK.md
-│   ├── agent-manager/
-│   │   ├── INSTRUCTIONS.md (this file)
-│   │   └── todos/
-│   ├── engineer/
-│   ├── planner/
-│   └── reviewer/
-├── todo/
-│   ├── current/ (active tasks)
-│   ├── reports/ (validation status)
-│   └── archive/ (completed tasks)
-├── analysis/ (review documents)
-├── archive/ (historical content)
-└── housekeeping/ (maintenance procedures)
+│   ├── personas/
+│   │   ├── agent-manager/
+│   │   │   ├── INSTRUCTIONS.md (this file)
+│   │   │   └── todos/
+│   │   │       ├── current/
+│   │   │       ├── backlog/
+│   │   │       ├── completed/
+│   │   │       └── coordination/
+│   │   ├── engineer/
+│   │   ├── planner/
+│   │   └── reviewer/
+│   ├── housekeeping/ (maintenance procedures)
+│   ├── archive/ (historical content)
+│   └── analysis/ (review documents)
+└── project/
+    ├── README.md
+    ├── TECH-SPEC.md
+    ├── STANDARDS.md
+    ├── contexts/
+    └── todos/
+        ├── engineer/
+        ├── planner/
+        └── reviewer/
 ```
 
 **Naming Conventions:**
@@ -340,22 +349,23 @@ The Agent-Manager persona is responsible for maintaining the organizational heal
 
 **Daily Operations:**
 
-- [`/todo/current/`](../../todo/current/) - Active tasks requiring validation
-- [`/housekeeping/`](../../housekeeping/) - Maintenance procedures
-- [`PERSONA-FRAMEWORK.md`](../PERSONA-FRAMEWORK.md) - Coordination protocols
+- `./todos/current/` - Active framework coordination tasks
+- `./todos/coordination/` - Cross-persona framework tasks
+- `../../housekeeping/` - Maintenance procedures
+- `../PERSONA-FRAMEWORK.md` - Coordination protocols
 
 **Coordination Resources:**
 
-- Engineer Instructions: [`/personas/engineer/INSTRUCTIONS.md`](../engineer/INSTRUCTIONS.md)
-- Planner Instructions: [`/personas/planner/INSTRUCTIONS.md`](../planner/INSTRUCTIONS.md)
-- Reviewer Instructions: [`/personas/reviewer/INSTRUCTIONS.md`](../reviewer/INSTRUCTIONS.md)
+- Engineer Instructions: `../engineer/INSTRUCTIONS.md`
+- Planner Instructions: `../planner/INSTRUCTIONS.md`
+- Reviewer Instructions: `../reviewer/INSTRUCTIONS.md`
 
 ### Common Task Patterns
 
 **🔄 Daily Housekeeping:**
 
-1. Check `/todo/current/` for completed tasks → Archive with timestamps
-2. Review recent project changes → Identify documentation updates needed
+1. Check `./todos/current/` for completed tasks → Archive with timestamps
+2. Review recent project changes in `../../../project/` → Identify documentation updates needed
 3. Validate persona handoffs → Ensure quality gates met
 
 **📋 Task Routing:**

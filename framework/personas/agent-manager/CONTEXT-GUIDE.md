@@ -62,7 +62,7 @@
 ## Quick Context Lookup
 
 ### For Daily Housekeeping
-1. Review framework todos (`../engineer/todos/current/`, `../planner/todos/current/`, `../reviewer/todos/current/`) and project todos (`../../../.project/todos/*/current/`) for completed tasks needing archival
+1. Review framework todos (`../engineer/todos/current/`, `../planner/todos/current/`, `../reviewer/todos/current/`) and project todos (`../../../../project/todos/*/current/`) for completed tasks needing archival
 2. Check recent project changes for documentation updates needed
 3. Validate persona handoffs for quality and completeness
 4. Update timestamps and completion dates

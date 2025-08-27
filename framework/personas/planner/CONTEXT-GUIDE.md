@@ -16,7 +16,7 @@
 - **Tag:** `#planner-priority`
 
 #### TODO Status and Validation Reports
-- **Location:** [`../../../.project/todos/planner/current/`](../../../.project/todos/planner/current/) (see [`../../../.project/todos/README.md`](../../../.project/todos/README.md))
+- **Location:** [`../../../../project/todos/planner/current/`](../../../../project/todos/planner/current/) (see [`../../../../project/todos/README.md`](../../../../project/todos/README.md))
 - **Purpose:** Current task status and priorities
 - **Usage:** Understanding development capacity and current initiatives
 - **Tag:** `#planner-priority`
@@ -49,7 +49,7 @@
 - **Tag:** `#planner-background`
 
 #### Team Capacity and Velocity
-- **Location:** Historical task completion data in `../../../.project/todos/planner/completed/` and `/archive/`
+- **Location:** Historical task completion data in `../../../../project/todos/planner/completed/` and `/archive/`
 - **Purpose:** Understanding team capacity and velocity patterns
 - **Usage:** Realistic timeline estimation and resource planning
 - **Tag:** `#planner-background`

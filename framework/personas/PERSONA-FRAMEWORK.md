@@ -23,7 +23,7 @@ The go-stream project uses a persona-based agent system to reduce cognitive over
 Each persona maintains their own TODO list in their directory:
 
 ```text
-.agent/personas/
+.personas/framework/personas/
 ├── engineer/todos/
 │   ├── current/
 │   ├── backlog/
@@ -141,7 +141,7 @@ Each persona maintains their own TODO list in their directory:
 
 **Core Responsibilities:**
 
-- Maintain `.agent` directory organization
+- Maintain `.personas/framework` directory organization
 - Manage documentation lifecycle and archival
 - Validate and organize TODO tasks across all personas
 - Coordinate between personas and route tasks
