@@ -71,11 +71,7 @@ personas-framework/
 .personas/framework/personas/[persona]/
 ├── INSTRUCTIONS.md        # Detailed persona instructions
 ├── QUICK-START.md        # Quick reference guide
-├── CONTEXT-GUIDE.md      # Context priority guidance
-└── todos/                # Framework-level tasks
-    ├── current/          # Active framework tasks
-    ├── backlog/          # Future framework work
-    └── completed/        # Archived framework tasks
+└── CONTEXT-GUIDE.md      # Context priority guidance
 ```
 
 ## Project Directory Structure

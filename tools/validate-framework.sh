@@ -178,10 +178,7 @@ validate_task_format() {
         ".personas/project/todos/engineer/current"
         ".personas/project/todos/planner/current"
         ".personas/project/todos/reviewer/current"
-        ".personas/framework/personas/engineer/todos/current"
-        ".personas/framework/personas/planner/todos/current"
-        ".personas/framework/personas/reviewer/todos/current"
-        ".personas/framework/personas/agent-manager/todos/current"
+        ".personas/project/todos/agent-manager/current"
     )
     
     local task_count=0
