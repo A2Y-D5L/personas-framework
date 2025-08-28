@@ -2,49 +2,64 @@
 
 An extensible, persona-based agent coordination framework designed to reduce cognitive overload by specializing agent roles into focused, well-defined personas. The framework is project-agnostic and can be adapted to any codebase or domain.
 
-## 🚀 Get Started
+## 🚀 Quick Start
 
-**New to the framework?** Start with our comprehensive [Integration Guide](docs/integration-guide.md) for step-by-step setup instructions, AI agent integration, and practical examples.
+**New to the framework?** Start with our [CLI Guide](docs/cli-guide.md) for complete setup instructions.
 
-**Quick Setup:** Use the automated setup script:
+### Install the CLI
+
 ```bash
 git clone https://github.com/A2Y-D5L/personas-framework.git
-cd your-project
-../personas-framework/setup.sh
+cd personas-framework
+chmod +x bin/personas
+
+# Optional: Add to PATH
+export PATH="$PATH:$(pwd)/bin"
 ```
 
-**AI Integration:** The framework seamlessly integrates with GitHub Copilot, ChatGPT, Claude, and other AI agents. See the [AI Integration section](docs/integration-guide.md#ai-agent-integration) for detailed instructions.
+### Initialize Your Project
 
-## Quick Start
+```bash
+# Create a new project with personas framework
+personas init my-project --description "My awesome project"
 
-### For New Projects
+# Or initialize in existing directory
+cd my-existing-project
+personas init . --project-name "My Project"
+```
 
-1. **Copy Framework to Project:**
+### Start Working
 
-   ```bash
-   # Copy the framework to your project's .personas directory
-   cp -r personas-framework/framework /path/to/your/project/.personas/
-   
-   # Copy the project template to your project's .personas/project directory
-   cp -r personas-framework/framework/project-template /path/to/your/project/.personas/project
-   ```
+```bash
+# Validate your setup
+personas validate
 
-2. **Customize for Your Project:**
-   - Update `.personas/project/README.md` with your project details
-   - Create `.personas/project/TECH-SPEC.md` with your technical specifications
-   - Populate `.personas/project/STANDARDS.md` with your coding standards
-   - Add project-specific context in `.personas/project/contexts/[persona]/`
+# Create tasks for different personas
+personas create-task engineer "Implement user authentication" --priority high
+personas create-task planner "Define project requirements" --priority medium
 
-3. **Start Using Personas:**
-   - Review the 2-minute Quick-Start guides in each persona directory
-   - Begin creating tasks in `.personas/project/todos/[persona]/current/`
-   - Use "framework-" prefix for framework coordination tasks
+# List available personas
+personas list-personas
+```
 
-### Framework Structure
+## 🛠️ CLI Commands
+
+The framework provides a unified CLI tool for all operations:
+
+- `personas init <name>` - Initialize new project with personas framework
+- `personas generate` - Generate .personas directory from template  
+- `personas validate [component]` - Validate project structure and files
+- `personas create-task <persona> <title>` - Create new task for specified persona
+- `personas validate-tasks` - Validate task files and metadata
+- `personas list-personas` - List available personas
+
+**Get detailed help:** `personas <command> --help`
+
+## 📁 Framework Architecture
 
 The framework uses a three-tier architecture that separates universal definitions, project-specific adaptations, and active work management:
 
-#### 🏗️ Framework Tier: Universal Definitions
+### 🏗️ Framework Tier: Universal Definitions
 
 **Location:** `.personas/framework/personas/`
 
@@ -52,7 +67,7 @@ The framework uses a three-tier architecture that separates universal definition
 - **Usage:** Read-only reference for understanding persona responsibilities
 - **Modification:** Do not modify - these are framework definitions
 
-#### 🎯 Project Tier: Specific Adaptations
+### 🎯 Project Tier: Specific Adaptations
 
 **Location:** `.personas/project/contexts/` and `.personas/project/`
 
@@ -60,7 +75,7 @@ The framework uses a three-tier architecture that separates universal definition
 - **Usage:** Actively customize for your project needs
 - **Modification:** Encouraged - adapt to your project requirements
 
-#### 📋 Operational Tier: Active Work Management
+### 📋 Operational Tier: Active Work Management
 
 **Location:** `.personas/project/todos/`
 
@@ -127,38 +142,76 @@ The framework uses a three-tier architecture that separates universal definition
 - Directory organization and archival
 - Cross-persona communication facilitation
 
-## Unified TODO System
+## 🔧 Advanced Usage
 
-### Project-Level Task Management
+### Custom Templates
+```bash
+# Generate with custom template (when available)
+personas generate --target ./my-project --template custom
+```
 
-**Location:** `.personas/project/todos/[persona]/`
+### Validation and Quality Assurance
+```bash
+# Validate everything
+personas validate
 
-- All project-specific implementation tasks
-- Framework coordination tasks (with "framework-" prefix)
-- Feature development and bug fixes
-- Cross-persona coordination and meta-tasks
-- Process improvements and documentation updates
+# Validate specific components
+personas validate structure
+personas validate tasks
 
-## Key Benefits
+# Validate with custom schema
+personas validate-tasks --schema ./custom-schema.yaml
+```
 
-- **Cognitive Load Reduction:** Clear role specialization prevents context switching
-- **Project Agnosticism:** Framework adapts to any technology stack or domain
-- **Unified Task Management:** Single location for all TODO management
-- **Rapid Onboarding:** 2-minute Quick-Start guides for immediate productivity
+### Task Management with YAML Metadata
+```bash
+# Create tasks with proper metadata
+personas create-task engineer "Implement API endpoints" --priority high
 
-## Documentation
+# Tasks are created with YAML frontmatter for tracking:
+# ---
+# id: "20250828-140500"
+# priority: "high"
+# assigned_to: "engineer"
+# created_by: "engineer"
+# status: "pending"
+# created_date: "2025-08-28"
+# ---
+```
 
-See `.personas/framework/PERSONA-FRAMEWORK.md` for complete framework documentation including:
+## 📚 Documentation
 
-- Detailed persona definitions and scope boundaries
-- Coordination protocols and handoff procedures
-- Task assignment rules and escalation paths
-- Customization guidelines for new projects
+- **[CLI Guide](docs/cli-guide.md)** - Complete CLI usage and examples
+- **[Integration Guide](docs/integration-guide.md)** - AI agent integration and setup
+- **[Framework API](docs/framework-api.md)** - API reference and customization
+- **[Quick Reference](docs/quick-reference.md)** - Commands and usage patterns
 
-## Framework Evolution
+## 🚀 Framework Features
 
-This framework is designed to evolve based on usage patterns and project needs. Framework improvements should be coordinated through the Agent-Manager persona's framework-level TODO system.
+- **Template-based Project Initialization** - Automated `.personas` directory generation
+- **YAML Task Metadata** - Structured task tracking with schema validation
+- **Unified CLI Interface** - Single command for all framework operations
+- **Multi-persona Support** - Engineer, Planner, Reviewer, Agent-Manager roles
+- **Cross-platform Compatibility** - Works on macOS, Linux, and Windows
+- **AI Agent Integration** - Optimized for GitHub Copilot, Claude, ChatGPT
+
+## 🛠️ Development
+
+### Contributing to the Framework
+
+```bash
+# Clone the framework repository
+git clone https://github.com/A2Y-D5L/personas-framework.git
+cd personas-framework
+
+# Test the CLI
+./bin/personas --help
+./bin/personas list-personas
+
+# Run validation on the framework itself
+./bin/personas validate
+```
 
 ## License
 
-This framework is released under [specify your license] and can be freely adapted for use in any project or organization.
+This framework is open source and available under the MIT License.

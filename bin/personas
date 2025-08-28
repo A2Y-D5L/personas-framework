@@ -1,0 +1,724 @@
+#!/bin/bash
+#
+# Personas Framework CLI Tool
+# Usage: personas <subcommand> [options]
+#
+# A unified command line interface for the personas framework,
+# integrating all framework automation functionality.
+#
+
+set -euo pipefail
+
+# Get script directory and framework root
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+FRAMEWORK_ROOT="$(dirname "$SCRIPT_DIR")"
+
+# CLI configuration
+CLI_VERSION="1.0.0"
+CONFIG_FILE="${PERSONAS_CONFIG:-$HOME/.personas/config.yaml}"
+
+# Colors for output (if terminal supports them)
+if [[ -t 1 ]] && command -v tput >/dev/null 2>&1; then
+    RED=$(tput setaf 1)
+    GREEN=$(tput setaf 2)
+    YELLOW=$(tput setaf 3)
+    BLUE=$(tput setaf 4)
+    BOLD=$(tput bold)
+    RESET=$(tput sgr0)
+else
+    RED="" GREEN="" YELLOW="" BLUE="" BOLD="" RESET=""
+fi
+
+# Global flags
+VERBOSE=false
+DRY_RUN=false
+
+# Utility functions
+log_info() {
+    echo "${BLUE}ℹ️  $*${RESET}"
+}
+
+log_success() {
+    echo "${GREEN}✅ $*${RESET}"
+}
+
+log_warning() {
+    echo "${YELLOW}⚠️  $*${RESET}"
+}
+
+log_error() {
+    echo "${RED}❌ $*${RESET}" >&2
+}
+
+log_verbose() {
+    if [[ "$VERBOSE" == "true" ]]; then
+        echo "${BLUE}🔍 $*${RESET}" >&2
+    fi
+}
+
+# Show main help
+show_help() {
+    cat << 'EOF'
+Personas Framework CLI Tool
+
+Usage: personas <subcommand> [options]
+
+Subcommands:
+  init <name>              Initialize new project with personas framework
+  generate                 Generate .personas directory from template
+  update                   Update existing project structure
+  validate [component]     Validate project structure and files
+  
+  create-task <persona>    Create new task for specified persona  
+  validate-tasks          Validate task files and metadata
+  check-dependencies      Check task dependency chains
+  
+  update-persona          Update persona definitions
+  sync-references         Sync persona references to current versions
+  list-personas           List available personas
+
+Global Options:
+  --config <file>         Use custom configuration file
+  --verbose              Enable verbose output
+  --dry-run              Show what would be done without executing
+  --help                 Show this help message
+  --version              Show version information
+
+Examples:
+  personas init my-project --description "My new project"
+  personas validate structure
+  personas create-task engineer "Implement feature X" --priority high
+  personas check-dependencies TASK-2025-001
+
+For detailed help on a subcommand, use:
+  personas <subcommand> --help
+EOF
+}
+
+# Show version information
+show_version() {
+    echo "Personas Framework CLI Tool v${CLI_VERSION}"
+    echo "Framework Path: ${FRAMEWORK_ROOT}"
+}
+
+# Parse global options
+parse_global_options() {
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            --verbose)
+                VERBOSE=true
+                shift
+                ;;
+            --dry-run)
+                DRY_RUN=true
+                shift
+                ;;
+            --config)
+                CONFIG_FILE="$2"
+                shift 2
+                ;;
+            --help|-h)
+                show_help
+                exit 0
+                ;;
+            --version)
+                show_version
+                exit 0
+                ;;
+            *)
+                # Pass through non-global arguments
+                break
+                ;;
+        esac
+    done
+    
+    # Return remaining arguments in the original array
+    return 0
+}
+
+# Initialize new project
+cmd_init() {
+    local project_name=""
+    local target_dir=""
+    local description=""
+    local tech_stack=""
+    
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            --target)
+                target_dir="$2"
+                shift 2
+                ;;
+            --description)
+                description="$2"
+                shift 2
+                ;;
+            --tech-stack)
+                tech_stack="$2"
+                shift 2
+                ;;
+            --help)
+                cat << 'EOF'
+personas init - Initialize new project with personas framework
+
+Usage: personas init <project-name> [options]
+
+Options:
+  --target <path>         Target directory (default: project name)
+  --description <text>    Project description
+  --tech-stack <text>     Technology stack description
+  --help                 Show this help
+
+Examples:
+  personas init my-app
+  personas init web-project --target ./projects/web --description "Web application"
+EOF
+                return 0
+                ;;
+            *)
+                if [[ -z "$project_name" ]]; then
+                    project_name="$1"
+                else
+                    log_error "Unknown option: $1"
+                    return 1
+                fi
+                shift
+                ;;
+        esac
+    done
+    
+    # Validate arguments
+    if [[ -z "$project_name" ]]; then
+        log_error "Project name is required"
+        log_info "Usage: personas init <project-name> [options]"
+        return 1
+    fi
+    
+    # Set default target directory
+    target_dir="${target_dir:-$project_name}"
+    
+    log_info "Initializing new project: $project_name"
+    log_verbose "Target directory: $target_dir"
+    log_verbose "Description: ${description:-Not specified}"
+    log_verbose "Tech stack: ${tech_stack:-Not specified}"
+    
+    if [[ "$DRY_RUN" == "true" ]]; then
+        log_info "DRY RUN: Would generate project at $target_dir"
+        return 0
+    fi
+    
+    # Call template generation script
+    local generate_script="$FRAMEWORK_ROOT/template/scripts/generate.sh"
+    if [[ ! -x "$generate_script" ]]; then
+        log_error "Template generation script not found: $generate_script"
+        return 1
+    fi
+    
+    local args=("--target" "$target_dir" "--project-name" "$project_name")
+    if [[ -n "$description" ]]; then
+        args+=("--description" "$description")
+    fi
+    if [[ -n "$tech_stack" ]]; then
+        args+=("--tech-stack" "$tech_stack")
+    fi
+    if [[ "$VERBOSE" == "true" ]]; then
+        args+=("--verbose")
+    fi
+    
+    log_verbose "Calling: $generate_script ${args[*]}"
+    "$generate_script" "${args[@]}"
+    
+    log_success "Project $project_name initialized successfully"
+}
+
+# Generate .personas directory
+cmd_generate() {
+    local target_dir=""
+    local project_name=""
+    
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            --target)
+                target_dir="$2"
+                shift 2
+                ;;
+            --project-name)
+                project_name="$2"
+                shift 2
+                ;;
+            --help)
+                cat << 'EOF'
+personas generate - Generate .personas directory from template
+
+Usage: personas generate --target <path> --project-name <name> [options]
+
+Options:
+  --target <path>         Target directory for .personas generation
+  --project-name <name>   Name of the project
+  --help                 Show this help
+
+Examples:
+  personas generate --target ./my-project --project-name "My Project"
+EOF
+                return 0
+                ;;
+            *)
+                log_error "Unknown option: $1"
+                return 1
+                ;;
+        esac
+    done
+    
+    if [[ -z "$target_dir" || -z "$project_name" ]]; then
+        log_error "Both --target and --project-name are required"
+        return 1
+    fi
+    
+    # Call generate script directly
+    local generate_script="$FRAMEWORK_ROOT/template/scripts/generate.sh"
+    if [[ ! -x "$generate_script" ]]; then
+        log_error "Template generation script not found: $generate_script"
+        return 1
+    fi
+    
+    log_info "Generating .personas directory for $project_name"
+    log_verbose "Target: $target_dir"
+    
+    if [[ "$DRY_RUN" == "true" ]]; then
+        log_info "DRY RUN: Would generate .personas at $target_dir"
+        return 0
+    fi
+    
+    local args=("--target" "$target_dir" "--project-name" "$project_name")
+    if [[ "$VERBOSE" == "true" ]]; then
+        args+=("--verbose")
+    fi
+    
+    "$generate_script" "${args[@]}"
+    log_success "Generated .personas directory successfully"
+}
+
+# Validate project structure
+cmd_validate() {
+    local component=""
+    local target_dir="."
+    
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            structure|tasks|template)
+                component="$1"
+                shift
+                ;;
+            --target)
+                target_dir="$2"
+                shift 2
+                ;;
+            --help)
+                cat << 'EOF'
+personas validate - Validate project structure and files
+
+Usage: personas validate [component] [options]
+
+Components:
+  structure              Validate .personas directory structure
+  tasks                  Validate task files and metadata
+  template               Validate template structure
+
+Options:
+  --target <path>        Target directory to validate (default: current)
+  --help                Show this help
+
+Examples:
+  personas validate
+  personas validate structure
+  personas validate tasks --target ./my-project
+EOF
+                return 0
+                ;;
+            *)
+                log_error "Unknown option: $1"
+                return 1
+                ;;
+        esac
+    done
+    
+    log_info "Validating project${component:+ $component}"
+    log_verbose "Target: $target_dir"
+    
+    case "$component" in
+        "structure")
+            # Validate directory structure only
+            local validate_script="$FRAMEWORK_ROOT/template/scripts/validate.sh"
+            if [[ -x "$validate_script" ]]; then
+                log_verbose "Running structure validation"
+                if [[ "$DRY_RUN" == "true" ]]; then
+                    log_info "DRY RUN: Would validate structure in $target_dir"
+                else
+                    "$validate_script" "$target_dir/.personas"
+                fi
+            else
+                log_warning "Structure validation script not found"
+            fi
+            ;;
+        "tasks")
+            # Validate task files only
+            local task_validator="$FRAMEWORK_ROOT/tools/validate-tasks.sh"
+            if [[ -x "$task_validator" ]]; then
+                log_verbose "Running task validation"
+                if [[ "$DRY_RUN" == "true" ]]; then
+                    log_info "DRY RUN: Would validate tasks in $target_dir"
+                else
+                    cd "$target_dir" && "$task_validator"
+                fi
+            else
+                log_warning "Task validation script not found"
+            fi
+            ;;
+        "template")
+            # Validate template structure
+            log_info "Template validation not yet implemented"
+            ;;
+        "")
+            # Validate everything if no component specified
+            local validate_script="$FRAMEWORK_ROOT/template/scripts/validate.sh"
+            if [[ -x "$validate_script" ]]; then
+                log_verbose "Running structure validation"
+                if [[ "$DRY_RUN" == "true" ]]; then
+                    log_info "DRY RUN: Would validate structure in $target_dir"
+                else
+                    "$validate_script" "$target_dir/.personas"
+                fi
+            else
+                log_warning "Structure validation script not found"
+            fi
+            
+            local task_validator="$FRAMEWORK_ROOT/tools/validate-tasks.sh"
+            if [[ -x "$task_validator" ]]; then
+                log_verbose "Running task validation"
+                if [[ "$DRY_RUN" == "true" ]]; then
+                    log_info "DRY RUN: Would validate tasks in $target_dir"
+                else
+                    cd "$target_dir" && "$task_validator"
+                fi
+            else
+                log_warning "Task validation script not found"
+            fi
+            ;;
+    esac
+    
+    log_success "Validation completed"
+}
+
+# Validate tasks specifically
+cmd_validate_tasks() {
+    local persona=""
+    local target_dir="."
+    local schema_file=""
+    
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            --persona)
+                persona="$2"
+                shift 2
+                ;;
+            --target)
+                target_dir="$2"
+                shift 2
+                ;;
+            --schema)
+                schema_file="$2"
+                shift 2
+                ;;
+            --help)
+                cat << 'EOF'
+personas validate-tasks - Validate task files and metadata
+
+Usage: personas validate-tasks [options]
+
+Options:
+  --persona <name>       Validate tasks for specific persona
+  --target <path>        Target directory (default: current)
+  --schema <file>        YAML schema file for validation
+  --help                Show this help
+
+Examples:
+  personas validate-tasks
+  personas validate-tasks --persona engineer
+  personas validate-tasks --schema ./my-schema.yaml
+EOF
+                return 0
+                ;;
+            *)
+                log_error "Unknown option: $1"
+                return 1
+                ;;
+        esac
+    done
+    
+    local task_validator="$FRAMEWORK_ROOT/tools/validate-tasks.sh"
+    if [[ ! -x "$task_validator" ]]; then
+        log_error "Task validation script not found: $task_validator"
+        return 1
+    fi
+    
+    log_info "Validating task files"
+    log_verbose "Target: $target_dir"
+    log_verbose "Persona: ${persona:-all}"
+    
+    if [[ "$DRY_RUN" == "true" ]]; then
+        log_info "DRY RUN: Would validate tasks in $target_dir"
+        return 0
+    fi
+    
+    local args=()
+    if [[ -n "$persona" ]]; then
+        args+=("--persona" "$persona")
+    fi
+    if [[ -n "$schema_file" ]]; then
+        args+=("--schema" "$schema_file")
+    fi
+    if [[ "$VERBOSE" == "true" ]]; then
+        args+=("--verbose")
+    fi
+    
+    cd "$target_dir" && "$task_validator" "${args[@]}"
+}
+
+# Create new task
+cmd_create_task() {
+    local persona=""
+    local title=""
+    local priority="medium"
+    local target_dir="."
+    
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            --priority)
+                priority="$2"
+                shift 2
+                ;;
+            --target)
+                target_dir="$2"
+                shift 2
+                ;;
+            --help)
+                cat << 'EOF'
+personas create-task - Create new task for specified persona
+
+Usage: personas create-task <persona> <title> [options]
+
+Options:
+  --priority <level>     Task priority (high/medium/low, default: medium)
+  --target <path>        Target directory (default: current)
+  --help                Show this help
+
+Examples:
+  personas create-task engineer "Implement new feature"
+  personas create-task planner "Review project timeline" --priority high
+EOF
+                return 0
+                ;;
+            *)
+                if [[ -z "$persona" ]]; then
+                    persona="$1"
+                elif [[ -z "$title" ]]; then
+                    title="$1"
+                else
+                    log_error "Unknown option: $1"
+                    return 1
+                fi
+                shift
+                ;;
+        esac
+    done
+    
+    if [[ -z "$persona" || -z "$title" ]]; then
+        log_error "Both persona and title are required"
+        log_info "Usage: personas create-task <persona> <title> [options]"
+        return 1
+    fi
+    
+    # Validate persona
+    local valid_personas=("engineer" "planner" "reviewer" "agent-manager")
+    local persona_pattern=" ${persona} "
+    local valid_pattern=" ${valid_personas[*]} "
+    if [[ ! "$valid_pattern" =~ $persona_pattern ]]; then
+        log_error "Invalid persona: $persona"
+        log_info "Valid personas: ${valid_personas[*]}"
+        return 1
+    fi
+    
+    # Validate priority
+    if [[ ! "$priority" =~ ^(high|medium|low)$ ]]; then
+        log_error "Invalid priority: $priority"
+        log_info "Valid priorities: high, medium, low"
+        return 1
+    fi
+    
+    log_info "Creating new task for $persona: $title"
+    log_verbose "Priority: $priority"
+    log_verbose "Target: $target_dir"
+    
+    if [[ "$DRY_RUN" == "true" ]]; then
+        log_info "DRY RUN: Would create task in $target_dir/.personas/project/todos/$persona/current/"
+        return 0
+    fi
+    
+    # Create task file
+    local task_dir="$target_dir/.personas/project/todos/$persona/current"
+    if [[ ! -d "$task_dir" ]]; then
+        log_error "Task directory not found: $task_dir"
+        log_info "Make sure you're in a project with personas framework initialized"
+        return 1
+    fi
+    
+    # Generate filename
+    local timestamp
+    timestamp=$(date +%Y%m%d-%H%M%S)
+    local slug
+    slug=$(echo "$title" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
+    local filename="$timestamp-$slug.md"
+    local filepath="$task_dir/$filename"
+    
+    # Create task content with YAML frontmatter
+    cat > "$filepath" << EOF
+---
+id: "$timestamp"
+priority: "$priority"
+assigned_to: "$persona"
+created_by: "$persona"
+status: "pending"
+created_date: "$(date +%Y-%m-%d)"
+---
+
+# $title
+
+**Created:** $(date +%Y-%m-%d)  
+**Priority:** $priority  
+**Assigned:** $persona  
+**Estimated Effort:** TBD  
+
+## Objective
+
+[Describe the task objective here]
+
+## Acceptance Criteria
+
+- [ ] [Criterion 1]
+- [ ] [Criterion 2]
+- [ ] [Criterion 3]
+
+## Implementation Notes
+
+[Add any implementation notes or considerations]
+
+## Definition of Done
+
+- [ ] Implementation completed
+- [ ] Testing completed
+- [ ] Documentation updated
+- [ ] Code reviewed
+EOF
+    
+    log_success "Created task: $filename"
+    log_info "Edit the task file to add details: $filepath"
+}
+
+# List available personas
+cmd_list_personas() {
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            --help)
+                cat << 'EOF'
+personas list-personas - List available personas
+
+Usage: personas list-personas
+
+Shows all available personas in the framework.
+EOF
+                return 0
+                ;;
+            *)
+                log_error "Unknown option: $1"
+                return 1
+                ;;
+        esac
+    done
+    
+    log_info "Available personas:"
+    
+    local personas_dir="$FRAMEWORK_ROOT/.personas/framework/personas"
+    if [[ -d "$personas_dir" ]]; then
+        for persona_dir in "$personas_dir"/*; do
+            if [[ -d "$persona_dir" ]]; then
+                local persona_name
+                persona_name=$(basename "$persona_dir")
+                local instructions_file="$persona_dir/INSTRUCTIONS.md"
+                if [[ -f "$instructions_file" ]]; then
+                    local description
+                    description=$(grep -m1 "^# " "$instructions_file" 2>/dev/null | sed 's/^# //' || echo "No description")
+                    echo "  • ${BOLD}$persona_name${RESET}: $description"
+                else
+                    echo "  • ${BOLD}$persona_name${RESET}: (no description available)"
+                fi
+            fi
+        done
+    else
+        log_warning "Personas directory not found: $personas_dir"
+    fi
+}
+
+# Main command dispatcher
+main() {
+    # Parse global options first
+    parse_global_options "$@"
+    
+    # Check if we have any commands left
+    if [[ $# -eq 0 ]]; then
+        show_help
+        exit 0
+    fi
+    
+    local command="$1"
+    shift
+    
+    log_verbose "Framework root: $FRAMEWORK_ROOT"
+    log_verbose "Command: $command"
+    log_verbose "Verbose mode: $VERBOSE"
+    log_verbose "Dry run: $DRY_RUN"
+    
+    case "$command" in
+        init)
+            cmd_init "$@"
+            ;;
+        generate)
+            cmd_generate "$@"
+            ;;
+        validate)
+            cmd_validate "$@"
+            ;;
+        validate-tasks)
+            cmd_validate_tasks "$@"
+            ;;
+        create-task)
+            cmd_create_task "$@"
+            ;;
+        list-personas)
+            cmd_list_personas "$@"
+            ;;
+        help|--help|-h)
+            show_help
+            ;;
+        *)
+            log_error "Unknown command: $command"
+            log_info "Use 'personas --help' for available commands"
+            exit 1
+            ;;
+    esac
+}
+
+# Only run main if script is executed directly (not sourced)
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    main "$@"
+fi
