@@ -2,6 +2,16 @@
 
 **Generated:** August 27, 2025
 
+## Getting Started
+
+**🚀 New User?** Check out the [Integration Guide](integration-guide.md) for complete setup instructions and AI agent integration.
+
+**⚡ Quick Setup:**
+```bash
+git clone [framework-repo] personas-framework
+./personas-framework/setup.sh
+```
+
 ## Persona Overview
 
 | Persona | Focus | Primary Responsibilities |
@@ -10,6 +20,29 @@
 | 📋 Planner | Architecture | System design, planning, roadmapping, analysis |
 | 🔍 Reviewer | Quality | Code review, security analysis, quality assurance |
 | 🗂️ Agent-Manager | Coordination | Documentation, task coordination, process management |
+
+## AI Agent Integration
+
+### GitHub Copilot Quick Start
+
+```markdown
+# Load Engineer persona
+@workspace /attach .personas/framework/personas/engineer/INSTRUCTIONS.md
+
+You are the Engineer persona. Please review your instructions 
+and begin working on current engineering tasks.
+
+# Load current tasks
+@workspace /attach .personas/project/todos/engineer/current/
+```
+
+### Other AI Platforms
+
+**ChatGPT/Claude:** Copy persona instructions and project context into chat.
+
+**Local LLMs:** Use automation scripts in `docs/examples/automation-scripts/`
+
+See [AI Integration Examples](examples/copilot-workflows/README.md) for detailed workflows.
 
 ## Quick Start Commands
 

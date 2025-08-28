@@ -2,6 +2,19 @@
 
 An extensible, persona-based agent coordination framework designed to reduce cognitive overload by specializing agent roles into focused, well-defined personas. The framework is project-agnostic and can be adapted to any codebase or domain.
 
+## 🚀 Get Started
+
+**New to the framework?** Start with our comprehensive [Integration Guide](docs/integration-guide.md) for step-by-step setup instructions, AI agent integration, and practical examples.
+
+**Quick Setup:** Use the automated setup script:
+```bash
+git clone https://github.com/A2Y-D5L/personas-framework.git
+cd your-project
+../personas-framework/setup.sh
+```
+
+**AI Integration:** The framework seamlessly integrates with GitHub Copilot, ChatGPT, Claude, and other AI agents. See the [AI Integration section](docs/integration-guide.md#ai-agent-integration) for detailed instructions.
+
 ## Quick Start
 
 ### For New Projects
