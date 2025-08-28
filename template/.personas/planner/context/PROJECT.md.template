@@ -1,0 +1,36 @@
+# Planner Project Context
+
+**Project:** ${PROJECT_NAME}
+**Description:** ${PROJECT_DESCRIPTION}
+**Technology Stack:** ${TECH_STACK}
+
+## Planner-Specific Context
+
+This file contains project-specific context relevant to the Planner persona's responsibilities.
+
+### Architecture Overview
+
+[Add project-specific architecture and design patterns]
+
+### Planning Methodology
+
+[Document project-specific planning approaches and methodologies]
+
+### Feature Pipeline
+
+[Document project-specific feature planning and roadmap management]
+
+### Integration Points
+
+[Document how Planner persona integrates with the project architecture]
+
+### Strategic Guidelines
+
+[Add project-specific strategic planning guidelines]
+
+## Project Standards
+
+- **Architecture Standards:** [Add project architecture standards]
+- **Planning Process:** [Add project planning process requirements]
+- **Documentation Requirements:** [Add project planning documentation standards]
+- **Stakeholder Communication:** [Add project communication standards]

@@ -1,0 +1,19 @@
+# Agent-Manager Persona Reference
+
+This file references the current Agent-Manager persona definition.
+
+**Current Definition:** [personas/agent-manager/CURRENT.md](../personas/agent-manager/CURRENT.md)
+
+**Project:** ${PROJECT_NAME}
+**Updated:** $(date)
+
+## Quick Reference
+
+The Agent-Manager persona is responsible for:
+- Centralized persona definition management and versioning
+- Workflow orchestration and state management
+- Cross-persona coordination and conflict resolution
+- Framework maintenance and consistency
+- Complex multi-persona workflow design
+
+For complete persona definition, see the current definition file linked above.

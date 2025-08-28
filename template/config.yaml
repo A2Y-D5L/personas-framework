@@ -1,0 +1,16 @@
+project:
+  name: "${PROJECT_NAME}"
+  description: "${PROJECT_DESCRIPTION}"
+  tech_stack: "${TECH_STACK}"
+  
+personas:
+  enabled: ["engineer", "planner", "reviewer", "agent-manager"]
+  custom_personas: []
+  
+versioning:
+  git_integration: true
+  auto_commit: false
+  
+workflow:
+  default_states: ["tasks", "done"]
+  enhanced_states: []

@@ -1,0 +1,82 @@
+# ${PROJECT_NAME}
+
+**Description:** ${PROJECT_DESCRIPTION}
+**Technology Stack:** ${TECH_STACK}
+
+## Personas Framework Integration
+
+This project uses the Personas Framework for AI agent coordination and task management. The framework provides structured workflows through specialized personas:
+
+- **🎯 Planner:** System architecture and strategic planning
+- **🏗️ Engineer:** Implementation and technical development
+- **🔍 Reviewer:** Quality assurance and code review
+- **👑 Agent-Manager:** Persona coordination and framework management
+
+## Project Structure
+
+```
+.personas/
+├── agent-manager/     # Centralized persona management
+├── engineer/          # Engineering tasks and context
+├── planner/           # Planning tasks and context
+├── reviewer/          # Review tasks and context
+├── DEPENDENCIES.md    # Project dependencies
+├── STANDARDS.md       # Coding and quality standards
+└── TECH-SPEC.md       # Technical specifications
+```
+
+## Getting Started
+
+### Prerequisites
+
+[List project prerequisites]
+
+### Setup
+
+[Provide setup instructions]
+
+### Usage
+
+[Provide usage instructions]
+
+## Persona Interaction
+
+### Task Assignment
+
+Tasks are assigned by creating markdown files in the appropriate persona's `tasks/` directory:
+
+- **Engineer tasks:** `.personas/engineer/tasks/`
+- **Planner tasks:** `.personas/planner/tasks/`
+- **Reviewer tasks:** `.personas/reviewer/tasks/`
+
+### Task Format
+
+All tasks follow the standardized metadata format:
+
+```markdown
+---
+id: TASK-2025-001
+priority: high|medium|low
+assigned_to: engineer|planner|reviewer|agent-manager
+created_by: planner
+status: pending
+created_date: 2025-08-28
+---
+
+# Task Title
+
+## Objective
+[Clear description of what needs to be accomplished]
+
+## Acceptance Criteria
+- [ ] Criterion 1
+- [ ] Criterion 2
+```
+
+## Contributing
+
+[Add contribution guidelines specific to this project]
+
+## License
+
+[Add license information]
