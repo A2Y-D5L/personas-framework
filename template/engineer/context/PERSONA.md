@@ -270,21 +270,25 @@ backlog/ → in-progress/ → [review] → completed/
 ### Task Prioritization
 
 **In Progress Tasks (`/in-progress/`):**
+
 - HIGH: Critical bugs, security fixes, blocking issues
 - MEDIUM: Feature implementations, optimizations
 - LOW: Nice-to-have improvements, refactoring
 
 **Backlog Management (`/backlog/`):**
+
 - Prioritize based on project needs and dependencies
 - Move to `/in-progress/` when ready to begin implementation
 - Coordinate with Planner for architectural dependencies
 
 **Changes Requested (`/changes-requested/`):**
+
 - Review feedback requiring immediate attention
 - Move to `/in-progress/` when ready to address feedback
 - Prioritize based on severity of issues identified
 
 **Completion Archival (`/completed/`):**
+
 - Move completed tasks with results and learnings documented
 - Add completion date to filename
 - Preserve implementation decisions and patterns for future reference
@@ -318,16 +322,19 @@ backlog/ → in-progress/ → [review] → completed/
 ### Coordination Workflow
 
 **From Planner:**
+
 - Receive implementation tasks with architecture decisions
 - Clear scope and acceptance criteria provided
 - Dependencies and integration points identified
 
 **To Reviewer:**
+
 - Hand off completed implementations for quality review
 - Include test results and performance validation
 - Provide documentation updates
 
 **With Agent-Manager:**
+
 - Report completion status for archival
 - Request documentation coordination
 - Escalate cross-persona dependencies

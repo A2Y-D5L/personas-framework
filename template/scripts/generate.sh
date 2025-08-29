@@ -22,7 +22,7 @@ set -euo pipefail
 
 # Script directory and template paths
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-TEMPLATE_DIR="$(dirname "$SCRIPT_DIR")"
+TEMPLATE_DIR="$(cd "$(dirname "$SCRIPT_DIR")" && pwd)"
 PERSONAS_TEMPLATE_DIR="$TEMPLATE_DIR/.personas"
 DEFAULT_CONFIG="$TEMPLATE_DIR/config.yaml"
 
@@ -162,6 +162,19 @@ validate_args() {
         usage
         exit 1
     fi
+}
+
+# Normalize paths to absolute paths
+normalize_paths() {
+    # Convert TARGET_DIR to absolute path
+    if [[ "$TARGET_DIR" == "." ]]; then
+        TARGET_DIR="$(pwd)"
+    elif [[ ! "$TARGET_DIR" == /* ]]; then
+        TARGET_DIR="$(cd "$TARGET_DIR" 2>/dev/null && pwd)" || TARGET_DIR="$(pwd)/$TARGET_DIR"
+    fi
+    
+    # Ensure PERSONAS_TEMPLATE_DIR is absolute (should already be from earlier fix)
+    PERSONAS_TEMPLATE_DIR="$(cd "$PERSONAS_TEMPLATE_DIR" && pwd)"
 }
 
 # Load configuration from YAML (simple parsing)
@@ -377,6 +390,7 @@ main() {
     
     parse_args "$@"
     validate_args
+    normalize_paths
     load_config
     
     log_info "Configuration:"
