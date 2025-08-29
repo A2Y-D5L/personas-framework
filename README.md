@@ -6,7 +6,7 @@ An extensible, persona-based agent coordination framework designed to reduce cog
 
 **New to the framework?** Start with our [CLI Guide](docs/cli-guide.md) for complete setup instructions.
 
-### Install the CLI
+### 1. Install the CLI
 
 ```bash
 git clone https://github.com/A2Y-D5L/personas-framework.git
@@ -17,18 +17,22 @@ chmod +x bin/personas
 export PATH="$PATH:$(pwd)/bin"
 ```
 
-### Initialize Your Project
+### 2. Initialize Your Project
+
+**Create a new project from scratch:**
 
 ```bash
-# Create a new project with personas framework
 personas init my-project --description "My awesome project"
-
-# Or initialize in existing directory
-cd my-existing-project
-personas init . --project-name "My Project"
 ```
 
-### Start Working
+**Integrate into an existing project:**
+
+```bash
+cd my-existing-project
+personas init . --description "Personas is an extensible prompt engineering framework designed to reduce cognitive overload by specializing agent roles into focused, well-defined personas. It is project-agnostic and can be adapted to any codebase or domain."
+```
+
+### 3. Start Working
 
 ```bash
 # Validate your setup
@@ -145,12 +149,14 @@ The framework uses a three-tier architecture that separates universal definition
 ## 🔧 Advanced Usage
 
 ### Custom Templates
+
 ```bash
 # Generate with custom template (when available)
 personas generate --target ./my-project --template custom
 ```
 
 ### Validation and Quality Assurance
+
 ```bash
 # Validate everything
 personas validate
@@ -164,6 +170,7 @@ personas validate-tasks --schema ./custom-schema.yaml
 ```
 
 ### Task Management with YAML Metadata
+
 ```bash
 # Create tasks with proper metadata
 personas create-task engineer "Implement API endpoints" --priority high
@@ -191,7 +198,7 @@ personas create-task engineer "Implement API endpoints" --priority high
 - **Template-based Project Initialization** - Automated `.personas` directory generation
 - **YAML Task Metadata** - Structured task tracking with schema validation
 - **Unified CLI Interface** - Single command for all framework operations
-- **Multi-persona Support** - Engineer, Planner, Reviewer, Agent-Manager roles
+- **Out-of-the-box Personas** - Engineer, Planner, Reviewer, Agent-Manager roles
 - **Cross-platform Compatibility** - Works on macOS, Linux, and Windows
 - **AI Agent Integration** - Optimized for GitHub Copilot, Claude, ChatGPT
 
@@ -214,4 +221,4 @@ cd personas-framework
 
 ## License
 
-This framework is open source and available under the MIT License.
+The Personas Framework is open source and available under [the Apache License 2.0](LICENSE).

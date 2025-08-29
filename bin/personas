@@ -86,6 +86,7 @@ Global Options:
 
 Examples:
   personas init my-project --description "My new project"
+  personas init . --project-name "My Existing Project" --description "Add personas to existing project"
   personas validate structure
   personas create-task engineer "Implement feature X" --priority high
   personas check-dependencies TASK-2025-001
@@ -150,6 +151,10 @@ cmd_init() {
                 target_dir="$2"
                 shift 2
                 ;;
+            --project-name)
+                project_name="$2"
+                shift 2
+                ;;
             --description)
                 description="$2"
                 shift 2
@@ -162,9 +167,10 @@ cmd_init() {
                 cat << 'EOF'
 personas init - Initialize new project with personas framework
 
-Usage: personas init <project-name> [options]
+Usage: personas init <project-name|path> [options]
 
 Options:
+  --project-name <name>   Override project name (useful when target is '.')
   --target <path>         Target directory (default: project name)
   --description <text>    Project description
   --tech-stack <text>     Technology stack description
@@ -172,13 +178,22 @@ Options:
 
 Examples:
   personas init my-app
+  personas init . --project-name "My Existing Project"
   personas init web-project --target ./projects/web --description "Web application"
 EOF
                 return 0
                 ;;
             *)
-                if [[ -z "$project_name" ]]; then
-                    project_name="$1"
+                if [[ -z "$project_name" && -z "$target_dir" ]]; then
+                    # First positional argument is project name/path
+                    if [[ "$1" == "." ]]; then
+                        target_dir="."
+                        # Use current directory name as default project name
+                        project_name=$(basename "$(pwd)")
+                    else
+                        project_name="$1"
+                        target_dir="$1"
+                    fi
                 else
                     log_error "Unknown option: $1"
                     return 1
@@ -189,14 +204,24 @@ EOF
     done
     
     # Validate arguments
-    if [[ -z "$project_name" ]]; then
-        log_error "Project name is required"
-        log_info "Usage: personas init <project-name> [options]"
+    if [[ -z "$project_name" && -z "$target_dir" ]]; then
+        log_error "Project name or target directory is required"
+        log_info "Usage: personas init <project-name|path> [options]"
         return 1
     fi
     
-    # Set default target directory
-    target_dir="${target_dir:-$project_name}"
+    # Set defaults
+    if [[ -z "$target_dir" ]]; then
+        target_dir="$project_name"
+    fi
+    
+    if [[ -z "$project_name" ]]; then
+        if [[ "$target_dir" == "." ]]; then
+            project_name=$(basename "$(pwd)")
+        else
+            project_name=$(basename "$target_dir")
+        fi
+    fi
     
     log_info "Initializing new project: $project_name"
     log_verbose "Target directory: $target_dir"

@@ -1,0 +1,19 @@
+# Engineer Persona Reference
+
+This file references the current Engineer persona definition.
+
+**Current Definition:** [../agent-manager/personas/engineer/CURRENT.md](../agent-manager/personas/engineer/CURRENT.md)
+
+**Project:** personas-framework
+**Updated:** 2025-08-29
+
+## Quick Reference
+
+The Engineer persona is responsible for:
+- Code implementation and development
+- Debugging and troubleshooting
+- Test development and validation
+- Performance optimization
+- Error handling implementation
+
+For complete persona definition, see the current definition file linked above.

@@ -7,17 +7,20 @@ A unified command line interface for the Personas Framework, providing easy acce
 ### Local Installation (Development)
 
 1. Clone the framework repository:
+
 ```bash
 git clone <framework-repo-url>
 cd personas-framework
 ```
 
 2. Make the CLI executable:
+
 ```bash
 chmod +x bin/personas
 ```
 
 3. Add to your PATH (optional):
+
 ```bash
 # Add to your shell profile (.bashrc, .zshrc, etc.)
 export PATH="$PATH:/path/to/personas-framework/bin"
@@ -26,6 +29,7 @@ export PATH="$PATH:/path/to/personas-framework/bin"
 ### Usage from Framework Directory
 
 You can run the CLI directly from the framework directory:
+
 ```bash
 ./bin/personas --help
 ```
@@ -33,15 +37,20 @@ You can run the CLI directly from the framework directory:
 ## Quick Start
 
 ### Initialize a New Project
+
 ```bash
 # Create a new project with personas framework
 personas init my-project --description "My awesome project"
+
+# Initialize in an existing project directory
+personas init . --project-name "My Existing Project" --description "Brief description"
 
 # Initialize in a specific directory
 personas init web-app --target ./projects/web-app
 ```
 
 ### Validate Project Structure
+
 ```bash
 # Validate everything
 personas validate
@@ -51,7 +60,8 @@ personas validate structure
 personas validate tasks
 ```
 
-### Task Management
+### Manage Agent Tasks
+
 ```bash
 # Create a new task
 personas create-task engineer "Implement user authentication" --priority high
@@ -64,6 +74,7 @@ personas validate-tasks --persona engineer
 ```
 
 ### Get Help
+
 ```bash
 # General help
 personas --help
@@ -76,18 +87,22 @@ personas create-task --help
 ## Available Commands
 
 ### Project Management
+
 - `personas init <name>` - Initialize new project with personas framework
 - `personas generate` - Generate .personas directory from template
 - `personas validate [component]` - Validate project structure and files
 
 ### Task Management
+
 - `personas create-task <persona> <title>` - Create new task for specified persona
 - `personas validate-tasks` - Validate task files and metadata
 
 ### Persona Management
+
 - `personas list-personas` - List available personas
 
 ### Utility Commands
+
 - `personas --version` - Show version information
 - `personas --help` - Show help information
 
@@ -100,6 +115,7 @@ personas create-task --help
 ## Examples
 
 ### Complete Project Setup
+
 ```bash
 # 1. Initialize new project
 personas init my-web-app --description "Modern web application"
@@ -116,6 +132,7 @@ personas create-task planner "Define project requirements" --priority high
 ```
 
 ### Task Management Workflow
+
 ```bash
 # Check all tasks
 personas validate-tasks --verbose
@@ -161,12 +178,14 @@ The CLI is designed to work well with various development environments:
 ### Common Issues
 
 **Command not found**: Ensure the CLI is executable and in your PATH
+
 ```bash
 chmod +x bin/personas
 export PATH="$PATH:/path/to/personas-framework/bin"
 ```
 
 **Permission denied**: Check file permissions
+
 ```bash
 ls -la bin/personas
 chmod +x bin/personas
@@ -179,6 +198,7 @@ chmod +x bin/personas
 ### Getting Help
 
 Use the built-in help system:
+
 ```bash
 personas --help
 personas <command> --help
@@ -196,6 +216,7 @@ The CLI is implemented as a bash script with modular functions. Key files:
 - `schemas/task-schema.yaml` - YAML schema for task metadata
 
 For development and testing:
+
 ```bash
 # Test all functionality
 ./bin/personas --help
